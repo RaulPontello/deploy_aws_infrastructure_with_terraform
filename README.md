@@ -1,4 +1,4 @@
-# deploy_infrastructure_with_terraform
+# Deploy infrastructure with terraform
 This repository is destined to deploy and S3 bucket and send files to it using Terraform
 
 Before you start, create and AWS Account to create an user and get Access Key
@@ -15,7 +15,8 @@ Useful commands:
 - terraform init
 - terraform validate
 - terraform output
-
+- OBS: Always use this sequence (terraform init --> commit changes --> terraform validate --> terraform apply)
+- 
 Useful content:
 - https://developer.hashicorp.com/terraform/tutorials/modules/module-create#main-tf
 - https://www.terraform.io/
