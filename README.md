@@ -16,7 +16,7 @@ Useful commands:
 - terraform validate
 - terraform output
 - OBS: Always use this sequence (terraform init --> commit changes --> terraform validate --> terraform apply)
-- 
+
 Useful content:
 - https://developer.hashicorp.com/terraform/tutorials/modules/module-create#main-tf
 - https://www.terraform.io/
