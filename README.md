@@ -1,5 +1,5 @@
 # Deploy infrastructure with terraform
-This repository is destined to deploy and S3 bucket and send files to it using Terraform
+This repository is destined to deploy AWS resources using Terraform
 
 Before you start, create and AWS Account to create an user and get Access Key
 
