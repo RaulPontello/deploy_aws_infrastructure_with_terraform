@@ -3,7 +3,7 @@ This repository is destined to deploy and S3 bucket and send files to it using T
 
 Before you start, create and AWS Account to create an user and get Access Key
 
-You need to execute the following command in yout Terminal: "export AWS_ACCESS_KEY_ID= yout_access_key" and "export AWS_SECRET_ACCESS_KEY= your_secret_access_key"
+You need to execute the following command in your Terminal: "export AWS_ACCESS_KEY_ID= yout_access_key" and "export AWS_SECRET_ACCESS_KEY= your_secret_access_key"
   
 You will also need to install AWS CLI, this command will help: "pip install awscli --upgrade --user"
 
