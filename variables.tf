@@ -17,7 +17,7 @@ variable "profile_name" {
 variable "files_directory" {
   description = "Path where files are located"
   type        = string
-  default     = "C:/Users/Engie/Desktop/all_files"
+  default     = "C:\\Users\\raulv\\all_files"
 }
 
 variable "s3_bucket_name" {

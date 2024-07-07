@@ -1,7 +1,14 @@
-# Deploy infrastructure with terraform
+# Deploy AWS infrastructure with terraform
 This repository is destined to deploy AWS resources using Terraform
 
-Terraform documentation fo AWS: https://developer.hashicorp.com/terraform/tutorials/aws-get-started
+Terraform documentation for AWS: https://developer.hashicorp.com/terraform/tutorials/aws-get-started
+
+Current AWS stacks to be implemented:
+1) AWS S3: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
+
+2) AWS EC2: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+
+3) AWS RDS: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
 
 Before you start, we need to:
 
@@ -20,6 +27,7 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 4) Verify installations
 
 To verify if AWS CLI was installed, run "aws --version"
+
 To verify if Terraform was installed, run "terraform --version"
 
 We have many methods to use your IAM credentials to authenticate the Terraform AWS provider:
