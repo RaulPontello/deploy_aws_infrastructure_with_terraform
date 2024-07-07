@@ -26,6 +26,10 @@ We have many methods to use your IAM credentials to authenticate the Terraform A
 
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs?ajs_aid=7178871d-9222-4967-bb36-3708610962c6&product_intent=terraform#environment-variables
 
+and 
+
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
+
 Dont' forget to grant the proper policy name to your user, you can use AdministratorAccess policy to allow full power to your user
 
 Useful Terraform commands:

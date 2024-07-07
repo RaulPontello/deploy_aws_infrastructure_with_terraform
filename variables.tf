@@ -6,6 +6,12 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
+variable "profile_name" {
+  description = "Name of the profile used"
+  type        = string
+  default     = "terraform_profile"
+}
+
 # Variables for AWS S3
 
 variable "files_directory" {
@@ -17,7 +23,7 @@ variable "files_directory" {
 variable "s3_bucket_name" {
   description = "Name of the s3 bucket. Must be unique."
   type        = string
-  default     = "bronze-raul-pontello"
+  default     = "bronze-terraform-bucket"
 }
 
 variable "s3_tags" {

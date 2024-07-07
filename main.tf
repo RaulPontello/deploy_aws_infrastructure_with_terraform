@@ -13,6 +13,7 @@ terraform {
 
 provider "aws" {
   region = var.aws_region
+  profile = var.profile_name
 }
 
 # Create AWS EC2 instance
@@ -20,14 +21,14 @@ provider "aws" {
 resource "aws_instance" "ec2_instance" {
   ami           = var.ec2_ami           # Application machine imagine of my EC2 instance
   instance_type = var.ec2_instance_type # Instance type of my EC2 instance
-  tags          = var.ec2_tags      # Tags to set on the EC2 instance
+  tags          = var.ec2_tags          # Tags to set on the EC2 instance
 }
 
 # Create AWS S3 bucket
 
 resource "aws_s3_bucket" "s3bucket" {
   bucket = var.s3_bucket_name # bucket name
-  tags   = var.s3_tags     # bucket tags
+  tags   = var.s3_tags        # bucket tags
 }
 
 # Upload all files in path into AWS S3 bucket
