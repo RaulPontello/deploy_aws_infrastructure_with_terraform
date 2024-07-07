@@ -37,6 +37,7 @@ Useful Terraform commands:
 - terraform apply -destroy
 - terraform init
 - terraform validate
+- terraform plan
 - terraform output
-- OBS: Always use this sequence (terraform init --> commit changes --> terraform validate --> terraform apply)
+- OBS: Always use this sequence (terraform init --> commit changes --> terraform validate --> terraform plan --> terraform apply)
 
