@@ -14,12 +14,6 @@ variable "profile_name" {
 
 # Variables for AWS S3
 
-variable "files_directory" {
-  description = "Path where files are located"
-  type        = string
-  default     = "C:\\Users\\raulv\\all_files"
-}
-
 variable "s3_bucket_name" {
   description = "Name of the s3 bucket. Must be unique."
   type        = string
@@ -35,25 +29,75 @@ variable "s3_tags" {
   }
 }
 
-# Variables for AWS EC2
 
-variable "ec2_ami" {
-  description = "Application machine imagine of my EC2 instance"
-  type        = string
-  default     = "ami-07caf09b362be10b8"
+# Variables for AWS RDS
+
+variable "engine" {
+  description = "The database engine"
+  type = string
+  default = "postgres"
 }
 
-variable "ec2_instance_type" {
-  description = "Instance type of my EC2 instance"
-  type        = string
-  default     = "t2.micro"
+variable "allocated_storage" {
+  description = "The amount of allocated storage."
+  type = number
+  default = 20
 }
 
-variable "ec2_tags" {
-  description = "Tags to set on the EC2 instance"
-  type        = map(string)
-  default     = {
-    Name        = "ec2_tag"
-    Environment = "dev"
-  }
+variable "storage_type" {
+  description = "type of the storage"
+  type = string
+  default = "gp2"
+}
+
+variable "username" {
+  description = "Username for the master DB user."
+  type = string
+}
+
+variable "password" {
+  description = "password of the database"
+  type = string
+}
+
+variable "instance_class" {
+  description = "The RDS instance class"
+  default = "db.t2.micro"
+  type = string
+}
+
+variable "parameter_group_name" {
+  description = "Name of the DB parameter group to associate"
+  default = "default.mysql5.7"
+  type = string
+}
+
+variable "engine_version" {
+  description = "The engine version"
+  default = "5.7"
+  type = number
+}
+
+variable "skip_final_snapshot" {
+  description = "skip snapshot"
+  default = "true"
+  type = string
+}
+
+variable "identifier" {
+  description = "The name of the RDS instance"
+  default = "terraform-database-test"
+  type = string
+}
+
+variable "port" {
+  description = "The port on which the DB accepts connections"
+  default = "3306"
+  type = number
+}
+
+variable "name" {
+  description = "The database name"
+  default = "Mysqldatabase"
+  type = string
 }

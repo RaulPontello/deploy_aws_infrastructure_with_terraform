@@ -10,14 +10,12 @@ output "bucket_arn" {
   value       = aws_s3_bucket.s3bucket.arn
 }
 
-# AWS EC2 outputs 
+# AWS RDS outputs 
 
-output "instance_id" {
-  description = "ID of the EC2 instance"
-  value       = aws_instance.ec2_instance.id
+output "rds_endpoint" {
+  value = aws_db_instance.rds_instance.endpoint
 }
 
-output "instance_public_ip" {
-  description = "Public IP address of the EC2 instance"
-  value       = aws_instance.ec2_instance.public_ip
+output "rds_username" {
+  value = aws_db_instance.rds_instance.username
 }
