@@ -50,19 +50,19 @@ variable "storage_type" {
   default = "gp2"
 }
 
-variable "username" {
+variable "db_username" {
   description = "Username for the master DB user."
   type = string
   default = "terraform_db" # The Master username must contain only letters (A-Z and a-z) and any of the following: +=,.@-_
 }
 
-variable "password" {
-  description = "password of the database" 
+variable "db_password" {
+  description = "Password of the database" 
   type = string
   default = "terraform_pw" # Minimum constraints: At least 8 printable ASCII characters. Can't contain any of the following symbols: / ' " @
 }
 
-variable "instance_class" {
+variable "rds_instance_class" {
   description = "The RDS instance class"
   default = "db.t3.micro"
   type = string
