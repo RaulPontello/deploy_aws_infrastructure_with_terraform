@@ -1,14 +1,20 @@
 # Deploy AWS infrastructure with terraform
+
 This repository is destined to deploy AWS resources using Terraform
 
 Terraform documentation for AWS: https://developer.hashicorp.com/terraform/tutorials/aws-get-started
 
 Current AWS stacks to be implemented:
-1) AWS S3: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 
-2) AWS EC2: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+1) AWS S3
 
-3) AWS RDS: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
+- Terraform documentation:https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
+
+2) AWS RDS
+
+- Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
+
+- Using AWS RDS with PostgreSQL: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html
 
 Before you start, we need to:
 
@@ -47,5 +53,5 @@ Useful Terraform commands:
 - terraform validate
 - terraform plan
 - terraform output
-- OBS: Always use this sequence (terraform init --> commit changes --> terraform validate --> terraform plan --> terraform apply)
+- Sequence: terraform init --> commit changes --> terraform validate --> terraform plan --> terraform apply --> terraform output
 

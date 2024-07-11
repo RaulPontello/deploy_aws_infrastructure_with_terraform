@@ -53,29 +53,19 @@ variable "storage_type" {
 variable "username" {
   description = "Username for the master DB user."
   type = string
+  default = "terraform_db" # The Master username must contain only letters (A-Z and a-z) and any of the following: +=,.@-_
 }
 
 variable "password" {
-  description = "password of the database"
+  description = "password of the database" 
   type = string
+  default = "terraform_pw" # Minimum constraints: At least 8 printable ASCII characters. Can't contain any of the following symbols: / ' " @
 }
 
 variable "instance_class" {
   description = "The RDS instance class"
-  default = "db.t2.micro"
+  default = "db.t3.micro"
   type = string
-}
-
-variable "parameter_group_name" {
-  description = "Name of the DB parameter group to associate"
-  default = "default.mysql5.7"
-  type = string
-}
-
-variable "engine_version" {
-  description = "The engine version"
-  default = "5.7"
-  type = number
 }
 
 variable "skip_final_snapshot" {
@@ -86,18 +76,12 @@ variable "skip_final_snapshot" {
 
 variable "identifier" {
   description = "The name of the RDS instance"
-  default = "terraform-database-test"
+  default = "terraform-rds-database"
   type = string
 }
 
 variable "port" {
   description = "The port on which the DB accepts connections"
-  default = "3306"
+  default = "5432"
   type = number
-}
-
-variable "name" {
-  description = "The database name"
-  default = "Mysqldatabase"
-  type = string
 }
