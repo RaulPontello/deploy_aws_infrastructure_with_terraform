@@ -1,4 +1,4 @@
-# Other variables
+# Other variables, used in providers.tf
 
 variable "aws_region" {
   description = "Region were tools will be created"
@@ -12,7 +12,7 @@ variable "profile_name" {
   default     = "terraform_profile"
 }
 
-# Variables for AWS S3
+# Variables for AWS S3, used in s3_stack.tf
 
 variable "s3_bucket_name" {
   description = "Name of the s3 bucket. Must be unique."
@@ -29,8 +29,15 @@ variable "s3_tags" {
   }
 }
 
+# Variables for AWS Secrets Manager, used in secrets_manager_stack.tf
 
-# Variables for AWS RDS
+variable "secret_name" {
+  description = "The secret name used for finding my database credentials"
+  type = string
+  default = "rds_db_credentials"
+}
+
+# Variables for AWS RDS, used in rds.stack.tf
 
 variable "engine" {
   description = "The database engine"

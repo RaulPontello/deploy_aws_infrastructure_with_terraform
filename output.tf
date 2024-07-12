@@ -19,7 +19,3 @@ output "rds_endpoint" {
 output "rds_username" {
   value = aws_db_instance.rds_instance.username
 }
-
-output "rds_instance_db_name" {
-  value = aws_db_instance.rds_instance.name
-}

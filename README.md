@@ -40,6 +40,8 @@ To verify if AWS CLI was installed, run "aws --version"
 
 To verify if Terraform was installed, run "terraform --version"
 
+5) AWS authentication in Terraform
+
 We have many methods to use your IAM credentials to authenticate the Terraform AWS provider:
 
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs?ajs_aid=7178871d-9222-4967-bb36-3708610962c6&product_intent=terraform#environment-variables
@@ -47,6 +49,14 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs?ajs_aid=717887
 and 
 
 https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
+
+If your are going to use shared configuration and credential files, create a new profile with the following command:
+
+"aws configure --profile your_profile_name" --> create new profile called your_profile_name
+
+"aws configure list-profiles" --> list all profiles
+
+In this project, your_profile_name is defined in variables.tf and is used in providers.tf.
 
 Dont' forget to grant the proper policy name to your user, you can use AdministratorAccess policy to allow full power to your user
 
