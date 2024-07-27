@@ -106,3 +106,15 @@ variable "function_name" {
   type        = string
   default     = "from_API_to_RDS"
 }
+
+variable "runtime" {
+  description = "Runtime provides a language-specific environment "
+  type        = string
+  default     = "python3.12"
+}
+
+variable "handler" {
+  description = "Indicates the method AWS Lambda should invoke when executing the function"
+  type        = string
+  default     = "api.lambda_handler"
+}
