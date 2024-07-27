@@ -1,4 +1,4 @@
-# Other variables, used in providers.tf
+# Other variables
 
 variable "aws_region" {
   description = "Region were tools will be created"
@@ -12,21 +12,21 @@ variable "profile_name" {
   default     = "terraform_profile"
 }
 
+variable "tags" {
+  description = "Tags to set"
+  type        = map(string)
+  default     = {
+    Name        = "bronze_tag"
+    Environment = "dev"
+  }
+}
+
 # Variables for AWS S3, used in s3_stack.tf
 
 variable "s3_bucket_name" {
   description = "Name of the s3 bucket. Must be unique."
   type        = string
   default     = "bronze-terraform-bucket"
-}
-
-variable "s3_tags" {
-  description = "Tags to set on the bucket."
-  type        = map(string)
-  default     = {
-    Name        = "bronze_tag"
-    Environment = "dev"
-  }
 }
 
 # Variables for AWS Secrets Manager, used in secrets_manager_stack.tf
@@ -37,7 +37,7 @@ variable "secret_name" {
   default     = "rds_db_credentials"
 }
 
-# Variables for AWS RDS, used in rds.stack.tf
+# Variables for AWS RDS, used in rds_stack.tf
 
 variable "engine" {
   description = "The database engine"
@@ -71,24 +71,38 @@ variable "db_password" {
 
 variable "rds_instance_class" {
   description = "The RDS instance class"
-  default     = "db.t3.micro"
   type        = string
+  default     = "db.t3.micro"
 }
 
 variable "skip_final_snapshot" {
   description = "skip snapshot"
-  default     = "true"
   type        = string
+  default     = "true"
 }
 
 variable "identifier" {
   description = "The name of the RDS instance"
-  default     = "terraform-rds-database"
   type        = string
+  default     = "terraform-rds-database"
 }
 
 variable "port" {
   description = "The port on which the DB accepts connections"
-  default     = "5432"
   type        = string
+  default     = "5432"
+}
+
+# Variables for AWS Lambda, used in lambda_stack.tf
+
+variable "lambda_file" {
+  description = "Name of the .py file"
+  type        = string
+  default     = "from_API_to_RDS"
+}
+
+variable "function_name" {
+  description = "Name of the .py file"
+  type        = string
+  default     = "from_API_to_RDS"
 }

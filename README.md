@@ -25,6 +25,18 @@ Current AWS stacks to be implemented:
 
 - Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret
 
+4) AWS Lambda
+
+- Terrafom documentation do zip file: https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file
+
+- Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function
+
+5) AWS IAM
+
+- Terraform documentation for policy: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
+
+- Terraform documentation for role: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role
+
 ## Before you start
 
 1) Create and AWS Account to create Security Credentials (IAM credentials)
