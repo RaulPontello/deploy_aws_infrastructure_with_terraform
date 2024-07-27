@@ -1,6 +1,11 @@
 # Deploy AWS infrastructure with terraform
 
+## Introduction
+
 This repository is destined to deploy AWS resources using Terraform
+
+
+## Documentation
 
 Terraform documentation for AWS: https://developer.hashicorp.com/terraform/tutorials/aws-get-started
 
@@ -20,7 +25,7 @@ Current AWS stacks to be implemented:
 
 - Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret
 
-Before you start, we need to:
+## Before you start
 
 1) Create and AWS Account to create Security Credentials (IAM credentials)
 
