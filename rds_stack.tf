@@ -2,7 +2,7 @@
 
 resource "aws_security_group" "rds_sg" {
   name        = "rds_security_group"
-  description = "Security group for RDS PostgreSQL instance"
+  description = "Security group for AWS RDS instance"
   tags = var.tags
   ingress {
     from_port   = 5432

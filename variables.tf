@@ -60,7 +60,7 @@ variable "storage_type" {
 variable "db_name" {
   description = "Database name"
   type        = string
-  default     = "cryptop_database"
+  default     = "crypto_database"
 }
 
 variable "db_username" {
