@@ -93,6 +93,18 @@ variable "port" {
   default     = "5432"
 }
 
+variable "publicly_accessible" {
+  description = "Defines if the AWS RDS database is publicly accessible"
+  type        = bool
+  default     = false
+}
+
+variable "iam_database_authentication_enabled" {
+  description = "Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled."
+  type        = bool
+  default     = true
+}
+
 # Variables for AWS Lambda, used in lambda_stack.tf
 
 variable "lambda_file" {

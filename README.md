@@ -19,6 +19,8 @@ Current AWS stacks to be implemented:
 
 - Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
 
+- Terraform documentation for Security Groups: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
+
 - Using AWS RDS with PostgreSQL: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html
 
 3) AWS Secrets Manager
