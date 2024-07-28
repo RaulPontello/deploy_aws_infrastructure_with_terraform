@@ -25,6 +25,6 @@ resource "aws_db_instance" "rds_instance" {
   identifier                          = var.identifier
   skip_final_snapshot                 = var.skip_final_snapshot
   publicly_accessible                 = var.publicly_accessible
-  iam_database_authentication_enabled = var.S
+  iam_database_authentication_enabled = var.iam_database_authentication_enabled
   vpc_security_group_ids              = [aws_security_group.rds_sg.id]
 }
