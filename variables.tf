@@ -57,6 +57,12 @@ variable "storage_type" {
   default     = "gp2"
 }
 
+variable "db_name" {
+  description = "Database name"
+  type        = string
+  default     = "cryptop_database"
+}
+
 variable "db_username" {
   description = "Username for the master DB user."
   type        = string

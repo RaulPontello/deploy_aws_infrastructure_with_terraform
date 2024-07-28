@@ -25,6 +25,7 @@ resource "aws_db_instance" "rds_instance" {
   storage_type                        = var.storage_type
   engine                              = var.engine
   instance_class                      = var.rds_instance_class
+  db_name                             = var.db_name
   username                            = var.db_username
   password                            = var.db_password
   port                                = var.port
