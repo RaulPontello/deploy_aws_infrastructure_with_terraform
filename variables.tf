@@ -16,8 +16,8 @@ variable "tags" {
   description = "Tags to set"
   type        = map(string)
   default     = {
-    Name        = "bronze_tag"
-    Environment = "dev"
+    Name        = "Owner"
+    Environment = "Raul Pontello"
   }
 }
 
@@ -96,7 +96,7 @@ variable "port" {
 variable "publicly_accessible" {
   description = "Defines if the AWS RDS database is publicly accessible"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "iam_database_authentication_enabled" {
