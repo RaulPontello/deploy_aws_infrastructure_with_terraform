@@ -14,7 +14,6 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 
 def extract_data_from_api():
   
-      
   # Extract data from API
   # Documentation: https://coinmarketcap.com/api/documentation/v1/#operation/getV1CryptocurrencyMap
 
@@ -98,30 +97,21 @@ def get_secret():
 def lambda_handler(event, context):
     df = extract_data_from_api()
     secret = get_secret()
+    database = 'crypto_database'
     username = 'terraform_db'
     password = 'terraform_pw'
     host = 'terraform-rds-database.cqazldnedfyl.us-east-1.rds.amazonaws.com'
     
     conn = psycopg2.connect(
-        host=host,
-        port = '5432',
-        user=username,
-        password=password
+        database = database,
+        host     = host,
+        port     = '5432',
+        user     = username,
+        password = password
     )
     
     cursor = conn.cursor()
     
-    # Create data base
-
-    query = '''create database crypto_data_base'''
-    cursor.execute(query)
-    cursor.connection.commit()
-
-    # Connect to data base
-
-    query = '''use crypto_data_base'''
-    cursor.execute(query)
-
     # Create table
 
     query = '''create table crypto_table (
@@ -143,7 +133,7 @@ def lambda_handler(event, context):
 
     # Insert data from df
 
-    for index, row in df.head(100).iterrows():
+    for index, row in df.iterrows():
         query = '''INSERT INTO crypto_table
 
                   (id, name, symbol, last_updated, circulating_supply, total_supply, 
@@ -170,6 +160,9 @@ def lambda_handler(event, context):
         cursor.execute(query, values)
 
     conn.commit()
+
+    # Close all database connections
+
     cursor.close()
     conn.close()
 
