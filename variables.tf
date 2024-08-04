@@ -16,12 +16,12 @@ variable "tags" {
   description = "Tags to set"
   type        = map(string)
   default     = {
-    Name        = "Owner"
-    Environment = "Raul Pontello"
+    Name        = "Side Project"
+    Environment = "Owner: Raul Pontello"
   }
 }
 
-# Variables for AWS S3, used in s3_stack.tf
+# Variables for AWS S3
 
 variable "s3_bucket_name" {
   description = "Name of the s3 bucket. Must be unique."
@@ -29,15 +29,7 @@ variable "s3_bucket_name" {
   default     = "bronze-terraform-bucket"
 }
 
-# Variables for AWS Secrets Manager, used in secrets_manager_stack.tf
-
-variable "secret_name" {
-  description = "The secret name used for finding my database credentials"
-  type        = string
-  default     = "rds_db_credentials"
-}
-
-# Variables for AWS RDS, used in rds_stack.tf
+# Variables for AWS RDS
 
 variable "engine" {
   description = "The database engine"
@@ -109,30 +101,4 @@ variable "iam_database_authentication_enabled" {
   description = "Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled."
   type        = bool
   default     = true
-}
-
-# Variables for AWS Lambda, used in lambda_stack.tf
-
-variable "lambda_file" {
-  description = "Name of the .py file"
-  type        = string
-  default     = "from_API_to_RDS"
-}
-
-variable "function_name" {
-  description = "Name of the .py file"
-  type        = string
-  default     = "from_API_to_RDS"
-}
-
-variable "runtime" {
-  description = "Runtime provides a language-specific environment "
-  type        = string
-  default     = "python3.12"
-}
-
-variable "handler" {
-  description = "Indicates the method AWS Lambda should invoke when executing the function"
-  type        = string
-  default     = "api.lambda_handler"
 }
