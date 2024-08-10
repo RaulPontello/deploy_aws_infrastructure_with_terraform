@@ -35,6 +35,5 @@ module "lambda_function" {
   source       = "./modules/lambda" 
   vpc_id       = module.vpc.vpc_id
   subnet_ids   = [module.vpc.public_subnet_id]
-  rds_endpoint = module.rds.rds_endpoint
   depends_on   = [module.vpc, module.rds_instance]
 }

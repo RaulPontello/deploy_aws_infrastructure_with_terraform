@@ -39,6 +39,12 @@ Current AWS stacks to be implemented:
 
 - Terraform documentation for role: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role
 
+6) AWS VPC
+
+- Terraform documentation to create VPC: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
+
+- Terraform documentation to create subnet: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet
+
 ## Before you start
 
 1) Create and AWS Account to create Security Credentials (IAM credentials)
