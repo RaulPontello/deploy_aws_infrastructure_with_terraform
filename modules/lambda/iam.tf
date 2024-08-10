@@ -1,17 +1,39 @@
-data "aws_iam_policy_document" "this" {
-  statement {
-    effect = "Allow"
+resource "aws_iam_role" "this" {
+  name = "lambda_exec_role"
 
-    principals {
-      type        = "Service"
-      identifiers = ["lambda.amazonaws.com"]
-    }
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action    = "sts:AssumeRole"
+      Effect    = "Allow"
+      Principal = {
+        Service = "lambda.amazonaws.com"
+      }
+    }]
+  })
 
-    actions = ["sts:AssumeRole"]
+  inline_policy {
+    name   = "rds-access"
+    policy = jsonencode({
+      Version = "2012-10-17"
+      Statement = [{
+        Action   = [
+          "rds:*"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      }]
+    })
   }
 }
 
-resource "aws_iam_role" "this" {
-  name               = "iam_for_lambda"
-  assume_role_policy = data.aws_iam_policy_document.this.json
+resource "aws_security_group" "this" {
+  vpc_id = var.vpc_id
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }

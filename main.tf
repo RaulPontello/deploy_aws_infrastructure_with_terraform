@@ -1,7 +1,14 @@
+module "vpc" {
+  source         = "./modules/vpc" 
+  s3_bucket_name = var.s3_bucket_name
+  tags           = var.tags
+}
+
 module "s3_bucket" {
   source         = "./modules/s3" 
   s3_bucket_name = var.s3_bucket_name
   tags           = var.tags
+  depends_on     = [module.vpc]
 }
 
 module "rds_instance" {
@@ -18,9 +25,16 @@ module "rds_instance" {
   skip_final_snapshot                 = var.skip_final_snapshot
   publicly_accessible                 = var.publicly_accessible
   iam_database_authentication_enabled = var.iam_database_authentication_enabled
+  vpc_id                              = module.vpc.vpc_id
+  subnet_ids                          = [module.vpc.subnet_id]
+  depends_on                          = [module.vpc]
   tags                                = var.tags
 }
 
 module "lambda_function" {
-    source                              = "./modules/lambda" 
+  source       = "./modules/lambda" 
+  vpc_id       = module.vpc.vpc_id
+  subnet_ids   = [module.vpc.public_subnet_id]
+  rds_endpoint = module.rds.rds_endpoint
+  depends_on   = [module.vpc, module.rds_instance]
 }

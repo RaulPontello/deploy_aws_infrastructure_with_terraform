@@ -62,3 +62,13 @@ variable "iam_database_authentication_enabled" {
   description = "Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled."
   type        = bool
 }
+
+variable "vpc_id" {
+  description = "The ID of the VPC"
+  type        = string
+}
+
+variable "subnet_ids" {
+  description = "List of Subnet IDs"
+  type        = list(string)
+}
