@@ -1,6 +1,5 @@
 module "vpc" {
   source         = "./modules/vpc" 
-  s3_bucket_name = var.s3_bucket_name
   tags           = var.tags
 }
 
