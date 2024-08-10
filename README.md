@@ -21,6 +21,8 @@ Current AWS stacks to be implemented:
 
 - Terraform documentation for Security Groups: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
 
+- Terraform documentation for DB subnet roup: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group
+
 - Using AWS RDS with PostgreSQL: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html
 
 3) AWS Secrets Manager
@@ -44,6 +46,12 @@ Current AWS stacks to be implemented:
 - Terraform documentation to create VPC: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
 
 - Terraform documentation to create subnet: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet
+
+- Terraform documentation for VPC Internet Gateway: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway.html
+
+- Terraform documentation for VPC Route Table: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table
+
+- Terraform documentation for VPC Route Table association: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association
 
 ## Before you start
 
