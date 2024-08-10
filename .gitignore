@@ -1,0 +1,31 @@
+# Ignore Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+crash.log
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env/
+venv/
+.venv/
+*.egg-info/
+
+# Ignore directories
+build/
+dist/
+*.egg-info/
+*.egg/
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
