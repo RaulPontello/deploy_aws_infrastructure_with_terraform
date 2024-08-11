@@ -6,6 +6,7 @@ import psycopg2
 import datetime
 import boto3
 import os
+import time
 
 from botocore.exceptions import ClientError
 from requests import Request, Session
@@ -22,7 +23,7 @@ def extract_data_from_api():
 
   parameters = {
     'start':'1',
-    'limit':'5000',
+    'limit':'1000',
   }
   headers = {
     'Accepts': 'application/json',
@@ -130,6 +131,7 @@ def lambda_handler(event, context):
                   '''
 
     cursor.execute(query)
+    time.sleep(20)
 
     # Insert data from df
 
