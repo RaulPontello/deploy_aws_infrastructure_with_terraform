@@ -7,7 +7,6 @@ resource "aws_subnet" "vpc_subnet_1" {
   cidr_block              = "10.0.1.0/24"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
-  route_table_id          = aws_route_table.public.id
   tags                    = var.tags
 }
 
@@ -16,7 +15,6 @@ resource "aws_subnet" "vpc_subnet_2" {
   cidr_block              = "10.0.2.0/24"
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
-  route_table_id          = aws_route_table.this.id
   tags                    = var.tags
 }
 
