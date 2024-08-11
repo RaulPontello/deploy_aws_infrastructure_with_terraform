@@ -35,10 +35,10 @@ resource "aws_route_table" "this" {
 
 resource "aws_route_table_association" "route_table_association_1" {
   subnet_id      = aws_subnet.vpc_subnet_1.id
-  route_table_id = aws_route_table.public.id
+  route_table_id = aws_route_table.this.id
 }
 
 resource "aws_route_table_association" "route_table_association_2" {
   subnet_id      = aws_subnet.vpc_subnet_2.id
-  route_table_id = aws_route_table.public.id
+  route_table_id = aws_route_table.this.id
 }
