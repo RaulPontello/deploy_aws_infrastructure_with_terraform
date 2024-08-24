@@ -21,6 +21,11 @@ variable "tags" {
   }
 }
 
+variable "environment" {
+  description = "The name of the environment used for this project"
+  type        = string
+}
+
 # Variables for AWS S3
 
 variable "s3_bucket_name" {

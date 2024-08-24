@@ -1,5 +1,5 @@
 resource "aws_security_group" "this" {
-  name        = "rds_security_group"
+  name        = "rds-security-group-${local.general_suffix}"
   description = "Security group for AWS RDS instance"
   vpc_id      = var.vpc_id
   tags        = var.tags
