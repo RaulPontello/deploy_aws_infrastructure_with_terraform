@@ -1,3 +1,9 @@
+## Introduction
+
+This module is destined to deploy AWS RDS resources using Terraform
+
+## Documentation
+
 - AWS RDS documentation with PostgreSQL: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html
 
 - Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance

@@ -1,3 +1,9 @@
+## Introduction
+
+This module is destined to deploy AWS VPC resources using Terraform
+
+## Documentation
+
 - AWS VPC documentation for VPC: https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/vpc-tkv.html
 
 - Terraform documentation to create VPC: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
