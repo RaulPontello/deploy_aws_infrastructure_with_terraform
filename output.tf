@@ -1,8 +1,13 @@
 # Other outputs
 
-output "module_path" {
+output "path.module" {
   value = path.module
 }
+
+output "path.root" {
+  value = path.root
+}
+
 
 # Outputs for AWS VPC
 
