@@ -53,7 +53,7 @@ Dont' forget to grant the proper policy name to your user, you can use Administr
 Useful Terraform commands:
 - terraform apply
 - terraform apply -destroy
-- terraform init
+- terraform init --upgrade
 - terraform validate
 - terraform plan
 - terraform output
