@@ -6,7 +6,9 @@ This repository is destined to deploy AWS resources using Terraform
 
 ## Documentation
 
-Terraform documentation for AWS: https://developer.hashicorp.com/terraform/tutorials/aws-get-started
+Terraform documentation for AWS
+
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started
 
 ## Before you start
 
