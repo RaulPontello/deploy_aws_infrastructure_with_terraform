@@ -4,54 +4,9 @@
 
 This repository is destined to deploy AWS resources using Terraform
 
-
 ## Documentation
 
 Terraform documentation for AWS: https://developer.hashicorp.com/terraform/tutorials/aws-get-started
-
-Current AWS stacks to be implemented:
-
-1) AWS S3
-
-- Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
-
-2) AWS RDS
-
-- Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
-
-- Terraform documentation for Security Groups: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
-
-- Terraform documentation for DB subnet roup: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group
-
-- Using AWS RDS with PostgreSQL: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html
-
-3) AWS Secrets Manager
-
-- Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret
-
-4) AWS Lambda
-
-- Terrafom documentation do zip file: https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file
-
-- Terraform documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function
-
-5) AWS IAM
-
-- Terraform documentation for policy: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
-
-- Terraform documentation for role: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role
-
-6) AWS VPC
-
-- Terraform documentation to create VPC: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
-
-- Terraform documentation to create subnet: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet
-
-- Terraform documentation for VPC Internet Gateway: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway.html
-
-- Terraform documentation for VPC Route Table: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table
-
-- Terraform documentation for VPC Route Table association: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association
 
 ## Before you start
 
