@@ -1,3 +1,9 @@
+# Other outputs
+
+output "module_path" {
+  value = path.module
+}
+
 # Outputs for AWS VPC
 
 output "vpc_id" {
