@@ -8,7 +8,6 @@ output "path_root" {
   value = path.root
 }
 
-
 # Outputs for AWS VPC
 
 output "vpc_id" {
