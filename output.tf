@@ -1,10 +1,10 @@
 # Other outputs
 
-output "path.module" {
+output "path_module" {
   value = path.module
 }
 
-output "path.root" {
+output "path_root" {
   value = path.root
 }
 
