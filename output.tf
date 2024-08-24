@@ -30,9 +30,9 @@ output "rds_endpoint" {
 
 # Outputs for AWS Lambda
 
-output "lambda_function_arn" {
-  value = module.lambda_function.lambda_function_arn
-}
+# output "lambda_function_arn" {
+#   value = module.lambda_function.lambda_function_arn
+# }
 
 # Outputs for AWS S3
 
