@@ -1,10 +1,10 @@
 module "vpc" {
-  source         = "./modules/vpc" 
+  source         = "./modules/sub_modules/vpc" 
   tags           = var.tags
 }
 
 module "rds_instance" {
-  source                              = "./modules/rds" 
+  source                              = "./modules/sub_modules/rds" 
   allocated_storage                   = var.allocated_storage
   storage_type                        = var.storage_type
   engine                              = var.engine
@@ -24,14 +24,14 @@ module "rds_instance" {
 }
 
 module "lambda_function" {
-  source       = "./modules/lambda" 
+  source       = "./modules/sub_modules/lambda" 
   vpc_id       = module.vpc.vpc_id
   subnet_ids   = module.vpc.subnet_ids
   depends_on   = [module.vpc, module.rds_instance]
 }
 
 module "s3_bucket" {
-  source         = "./modules/s3" 
+  source         = "./modules/sub_modules/s3" 
   s3_bucket_name = var.s3_bucket_name
   tags           = var.tags
   depends_on     = [module.vpc, module.rds_instance]

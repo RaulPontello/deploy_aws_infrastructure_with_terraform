@@ -9,7 +9,7 @@ variable "aws_region" {
 variable "profile_name" {
   description = "Name of the profile used"
   type        = string
-  default     = "terraform_profile"
+  default     = "terraform-profile"
 }
 
 variable "tags" {
