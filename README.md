@@ -43,9 +43,9 @@ For documentation on each resource implemented in this project, refer to the REA
    aws configure --profile your_profile_name   # Create a new profile called 'your_profile_name'
    aws configure list-profiles                 # List all profiles
 
-   In this project, your_profile_name is defined in variables.tf and is used in providers.tf.
+In this project, your_profile_name is defined in variables.tf and is used in providers.tf.
 
-   ⚠️ Don't forget to grant the proper policy name to your user! You can use the AdministratorAccess policy to allow full access to your user
+⚠️ Don't forget to grant the proper policy name to your user! You can use the AdministratorAccess policy to allow full access to your user
 
 ## 🛠️ Useful Terraform Commands
    - terraform apply
