@@ -1,5 +1,5 @@
 # 🚀 Deploy AWS Infrastructure with Terraform
-<span style="color:red;">This text will be red.</span>
+
 ## 🌟 Introduction
 
 Hello folks, you have come to the right place if you want to learn Terrafom and AWS.
@@ -23,7 +23,7 @@ For documentation on each resource implemented in this project, refer to the REA
    - [AWS IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html)
    - [AWS IAM Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html)
 
-   ⚠️ Don't forget to grant the proper policy name to your user! You can use the AdministratorAccess policy to allow full access to your user
+   ⚠️ Don't forget to grant the proper policy name to your user! You can use the AdministratorAccess policy to allow AWS full access to your user ⚠️
 
 3. **Install Terraform**
    - [Terraform Installation Guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
