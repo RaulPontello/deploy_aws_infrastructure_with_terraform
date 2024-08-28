@@ -14,23 +14,29 @@ For documentation on each resource implemented in this project, refer to the REA
 
 ## 🚀 Before You Start
 
-1. **Create an AWS Account to generate Security Credentials (IAM credentials):**
+1. **Create an AWS Account**
+   - [AWS Account](https://aws.amazon.com/resources/create-account/)
+
+2. **Create an AWS IAM User to generate Security Credentials (IAM credentials):**
+   - [AWS IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html)
    - [AWS IAM Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html)
 
-2. **Install Terraform:**
+   ⚠️ Don't forget to grant the proper policy name to your user! You can use the AdministratorAccess policy to allow full access to your user
+
+3. **Install Terraform:**
    - [Terraform Installation Guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
-3. **Install AWS CLI:**
+4. **Install AWS CLI:**
    - [AWS CLI Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-4. **Verify Installations:**
+5. **Verify Installations:**
 
    - To verify if AWS CLI was installed, run:  
      <span style="color:blue;">`aws --version`</span>
    - To verify if Terraform was installed, run:  
      <span style="color:blue;">`terraform --version`</span>
 
-5. **AWS Authentication in Terraform:**
+6. **AWS Authentication in Terraform:**
 
    We have several methods to use your IAM credentials to authenticate the Terraform AWS provider:
 
@@ -44,8 +50,6 @@ For documentation on each resource implemented in this project, refer to the REA
    aws configure list-profiles                 # List all profiles
 
 In this project, your_profile_name is defined in variables.tf and is used in providers.tf.
-
-⚠️ Don't forget to grant the proper policy name to your user! You can use the AdministratorAccess policy to allow full access to your user
 
 ## 🛠️ Useful Terraform Commands
    - terraform apply
