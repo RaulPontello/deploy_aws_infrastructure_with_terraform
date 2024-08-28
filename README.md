@@ -45,9 +45,9 @@ For documentation on each resource implemented in this project, refer to the REA
 
    In this project, your_profile_name is defined in variables.tf and is used in providers.tf.
 
-<span style="color:red;">⚠️ Don't forget to grant the proper policy name to your user! You can use the AdministratorAccess policy to allow full access to your user.</span>
+   ⚠️ Don't forget to grant the proper policy name to your user! You can use the AdministratorAccess policy to allow full access to your user
 
-🛠️ Useful Terraform Commands
+## 🛠️ Useful Terraform Commands
    - terraform apply
    - terraform apply -destroy
    - terraform init --upgrade
@@ -57,4 +57,4 @@ For documentation on each resource implemented in this project, refer to the REA
 
    Execution Sequence:
    
-   <span style="color:green;">terraform init → commit changes → terraform validate → terraform plan → terraform apply → terraform output</span>
+   terraform init → terraform validate → terraform plan → terraform apply → terraform output
