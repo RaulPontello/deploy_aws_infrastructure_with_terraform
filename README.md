@@ -4,7 +4,7 @@
 
 Hello folks, you have come to the right place if you want to learn Terrafom and AWS.
 
-This repository is dedicated to deploying AWS resources using Terraform. This is an educational project, the solutions presented are not meant for production level. The goal of this repository is to teach how to use Terrafom with AWS resources.
+This repository is dedicated to deploying AWS resources using Terraform. This is an educational project, the solutions presented are not intended for production level. The goal of this repository is to teach how to use Terrafom with AWS resources.
 
 ## 📚 Documentation
 
