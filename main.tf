@@ -18,7 +18,7 @@ module "rds_instance" {
   publicly_accessible                 = var.publicly_accessible
   iam_database_authentication_enabled = var.iam_database_authentication_enabled
   vpc_id                              = module.vpc.vpc_id
-  db_subnet_group_name                = module.vpc.aws_db_subnet_group.this.name
+  db_subnet_group_name                = module.vpc.db_subnet_group_name
   depends_on                          = [module.vpc]
   tags                                = var.tags
 }
