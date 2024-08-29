@@ -20,28 +20,28 @@ output "subnet_ids" {
 
 # Outputs for AWS RDS
 
-output "rds_username" {
-  value = module.rds_instance.rds_username
-}
+# output "rds_username" {
+#   value = module.rds_instance.rds_username
+# }
 
-output "rds_endpoint" {
-  value = module.rds_instance.rds_endpoint
-}
+# output "rds_endpoint" {
+#   value = module.rds_instance.rds_endpoint
+# }
 
-# Outputs for AWS Lambda
+# # Outputs for AWS Lambda
 
-output "lambda_function_arn" {
-  value = module.lambda_function.lambda_function_arn
-}
+# output "lambda_function_arn" {
+#   value = module.lambda_function.lambda_function_arn
+# }
 
 # Outputs for AWS S3
 
-output "bucket_name" {
-  description = "Bucket name of my S3 bucket"
-  value       = module.s3_bucket.bucket_name
-}
+# output "bucket_name" {
+#   description = "Bucket name of my S3 bucket"
+#   value       = module.s3_bucket.bucket_name
+# }
 
-output "bucket_arn" {
-  description = "Bucket ARN of my S3 bucket"
-  value       = module.s3_bucket.bucket_arn
-}
+# output "bucket_arn" {
+#   description = "Bucket ARN of my S3 bucket"
+#   value       = module.s3_bucket.bucket_arn
+# }
