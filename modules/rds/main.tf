@@ -17,11 +17,6 @@ resource "aws_security_group" "this" {
   }
 }
 
-resource "aws_db_subnet_group" "this" {
-  name       = "rds-subnet-group"
-  subnet_ids = var.subnet_ids
-}
-
 resource "aws_db_instance" "this" {
   allocated_storage                   = var.allocated_storage
   storage_type                        = var.storage_type

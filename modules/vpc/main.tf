@@ -20,6 +20,11 @@ resource "aws_subnet" "vpc_subnet_2" {
   tags                    = var.tags
 }
 
+resource "aws_db_subnet_group" "this" {
+  name       = "vpc-subnet-group"
+  subnet_ids = [aws_subnet.vpc_subnet_1.this.id, aws_subnet.vpc_subnet_2.this.id]
+}
+
 resource "aws_internet_gateway" "this" {
   vpc_id = aws_vpc.this.id
   tags   = var.tags

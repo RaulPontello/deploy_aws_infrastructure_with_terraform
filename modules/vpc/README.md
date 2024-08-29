@@ -16,6 +16,10 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
 
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet
 
+- Terraform documentation for DB subnet group: 
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group
+
 - Terraform documentation for VPC Internet Gateway: 
 
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway.html

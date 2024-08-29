@@ -8,6 +8,10 @@ This module is destined to deploy AWS RDS resources using Terraform
 
 https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html
 
+- AWS RDS documentation for working with a DB instance in a VPC
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
+
 - Terraform documentation: 
 
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
@@ -15,10 +19,6 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_i
 - Terraform documentation for Security Groups: 
 
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
-
-- Terraform documentation for DB subnet roup: 
-
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group
 
 - Terraform documentation for policy: 
 
