@@ -30,6 +30,6 @@ resource "aws_db_instance" "this" {
   skip_final_snapshot                 = var.skip_final_snapshot
   publicly_accessible                 = var.publicly_accessible
   iam_database_authentication_enabled = var.iam_database_authentication_enabled
-  db_subnet_group_name                = aws_db_subnet_group.this.name
+  db_subnet_group_name                = var.db_subnet_group_name
   vpc_security_group_ids              = [aws_security_group.this.id]
 }
