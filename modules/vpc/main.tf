@@ -22,7 +22,7 @@ resource "aws_subnet" "vpc_subnet_2" {
 
 resource "aws_db_subnet_group" "this" {
   name       = "vpc-subnet-group"
-  subnet_ids = ["${aws_subnet.vpc_subnet_1.this.id}", "${aws_subnet.vpc_subnet_2.this.id}"]
+  subnet_ids = ["${aws_subnet.vpc_subnet_1.id}", "${aws_subnet.vpc_subnet_2.id}"]}
 }
 
 resource "aws_internet_gateway" "this" {
