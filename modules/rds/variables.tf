@@ -67,3 +67,8 @@ variable "vpc_id" {
   description = "The ID of the VPC"
   type        = string
 }
+
+variable "db_subnet_group_name" {
+  description = "Name of DB subnet group create in VPC moduçe"
+  type        = string
+}
