@@ -3,7 +3,11 @@
 variable "aws_region" {
   description = "Region were tools will be created"
   type        = string
-  default     = "us-east-1"
+}
+
+variable "environment" {
+  description = "Name of the environment used. Ex: dev, qa, prod"
+  type        = string
 }
 
 variable "profile_name" {

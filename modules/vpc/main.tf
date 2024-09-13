@@ -1,7 +1,7 @@
 resource "aws_vpc" "this" {
   cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
-  tags                 = var.tags
+  tags                 = {Name = "terraform-side-project-vpc-${general_suffix}"}
 }
 
 resource "aws_subnet" "vpc_subnet_1" {
