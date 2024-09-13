@@ -9,7 +9,7 @@ resource "aws_subnet" "vpc_subnet_1" {
   cidr_block              = "10.0.1.0/24"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
-  tags                    = var.tags
+  tags                    = {Name = "terraform-side-project-vpc-subnet1"}
 }
 
 resource "aws_subnet" "vpc_subnet_2" {
@@ -17,11 +17,11 @@ resource "aws_subnet" "vpc_subnet_2" {
   cidr_block              = "10.0.2.0/24"
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
-  tags                    = var.tags
+  tags                    = {Name = "terraform-side-project-vpc-subnet1"}
 }
 
 resource "aws_db_subnet_group" "this" {
-  name       = "vpc-subnet-group"
+  name       = "terraform-side-project-vpc-subnet_group"
   subnet_ids = ["${aws_subnet.vpc_subnet_1.id}", "${aws_subnet.vpc_subnet_2.id}"]
 }
 
