@@ -69,6 +69,6 @@ variable "vpc_id" {
 }
 
 variable "db_subnet_group_name" {
-  description = "Name of DB subnet group create in VPC moduçe"
+  description = "Name of DB subnet group created in VPC moduçe"
   type        = string
 }
