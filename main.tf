@@ -23,12 +23,12 @@ module "vpc" {
 #   tags                                = var.tags
 # }
 
-module "lambda_function" {
-  source       = "./modules/lambda" 
-  vpc_id       = module.vpc.vpc_id
-  subnet_ids   = module.vpc.subnet_ids
-  depends_on   = [module.vpc]
-}
+# module "lambda_function" {
+#   source       = "./modules/lambda" 
+#   vpc_id       = module.vpc.vpc_id
+#   subnet_ids   = module.vpc.subnet_ids
+#   depends_on   = [module.vpc]
+# }
 
 # module "s3_bucket" {
 #   source         = "./modules/s3" 
