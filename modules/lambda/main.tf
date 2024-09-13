@@ -2,7 +2,7 @@
 
 data "archive_file" "this" {
   type        = "zip"
-  source_file = "${path.root}/python/from_API_to_RDS.py"
+  source_dir  = "${path.root}/python/from_API_to_RDS.py"
   output_path = "${path.root}/python/from_API_to_RDS.zip"
 }
 
