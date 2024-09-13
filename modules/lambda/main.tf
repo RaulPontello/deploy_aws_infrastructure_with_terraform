@@ -2,8 +2,8 @@
 
 data "archive_file" "this" {
   type        = "zip"
-  source_dir  = "deploy_aws_infrastructure_with_terraform/python/from_API_to_RDS.py"
-  output_path = "${path.root}/python/from_API_to_RDS.zip"
+  source_dir  = "${path.root}/from_API_to_RDS.py"
+  output_path = "${path.root}/python2/from_API_to_RDS.zip"
 }
 
 # Create AWS Lambda function
