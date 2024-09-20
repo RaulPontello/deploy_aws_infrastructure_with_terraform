@@ -15,7 +15,7 @@ resource "aws_iam_role" "this" {
   })
 }
 
-data "aws_iam_policy_document" "glue_policy_statements" {
+data "aws_iam_policy_document" "this" {
     statement {
         actions   = [
           "rds:*",
@@ -34,9 +34,9 @@ resource "aws_iam_policy" "glue_policy" {
 
 }
 
-resource "aws_iam_role_policy_attachment" "glue_policy_attach" {
-  role       = aws_iam_role.glue_role.name
-  policy_arn = aws_iam_policy.glue_policy.arn
+resource "aws_iam_role_policy_attachment" "policy_attach" {
+  role       = aws_iam_role.this.name
+  policy_arn = aws_iam_policy.this.arn
 }
 
 resource "aws_security_group" "this" {
