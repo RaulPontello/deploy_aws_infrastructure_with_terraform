@@ -86,7 +86,7 @@ variable "skip_final_snapshot" {
 variable "identifier" {
   description = "The name of the RDS instance"
   type        = string
-  default     = "-rds-database"
+  default     = "rds-database"
 }
 
 variable "port" {
