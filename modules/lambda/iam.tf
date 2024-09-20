@@ -1,35 +1,42 @@
-resource "aws_iam_role" "this" {
-  name = "lambda_exec_role"
 
+resource "aws_iam_role" "glue_role" {
+  name   = "terraform-side-project-role"
   assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [{
-      Action    = "sts:AssumeRole"
-      Effect    = "Allow"
-      Principal = {
-        Service = "lambda.amazonaws.com"
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Action    = "sts:AssumeRole",
+        Effect    = "Allow",
+        Principal = {
+          Service = "lambda.amazonaws.com"
+        }
       }
-    }]
+    ]
   })
+}
 
-  inline_policy {
-    name   = "rds-access"
-    policy = jsonencode({
-      Version = "2012-10-17"
-      Statement = [{
-        Action   = [
+data "aws_iam_policy_document" "glue_policy_statements" {
+    statement {
+        actions   = [
           "rds:*",
-          "ec2:CreateNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DeleteNetworkInterface",
-          "ec2:AssignPrivateIpAddresses",
-          "ec2:UnassignPrivateIpAddresses"
         ]
-        Effect   = "Allow"
-        Resource = "*"
-      }]
-    })
+        effect    = "Allow"
+        resources = [
+          "*"
+        ]
+      }
   }
+
+resource "aws_iam_policy" "glue_policy" {
+  name        = "terraform-side-project-policy"
+  description = "Policy for Glue Job to access S3 buckets"
+  policy      = data.aws_iam_policy_document.glue_policy_statements.json
+
+}
+
+resource "aws_iam_role_policy_attachment" "glue_policy_attach" {
+  role       = aws_iam_role.glue_role.name
+  policy_arn = aws_iam_policy.glue_policy.arn
 }
 
 resource "aws_security_group" "this" {
