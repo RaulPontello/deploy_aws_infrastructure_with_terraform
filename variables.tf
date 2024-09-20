@@ -106,3 +106,8 @@ variable "iam_database_authentication_enabled" {
   type        = bool
   default     = true
 }
+
+variable "source_file" {
+  description = "(String) Package this file into the archive"
+  type        = string
+}

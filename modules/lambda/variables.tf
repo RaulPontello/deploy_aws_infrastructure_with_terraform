@@ -25,3 +25,8 @@ variable "subnet_ids" {
   description = "List of Subnet IDs"
   type        = list(string)
 }
+
+variable "source_file" {
+  description = "(String) Package this file into the archive"
+  type        = string
+}

@@ -2,8 +2,8 @@
 
 data "archive_file" "this" {
   type        = "zip"
-  source_file = "${path.root}/from_API_to_RDS.py"
-  output_path = "${path.root}/python2/from_API_to_RDS.zip"
+  source_file = var.source_file
+  output_path = replace(var.source_file, ".py", ".zip")
 }
 
 # Create AWS Lambda function
