@@ -1,4 +1,4 @@
-variable "tags" {
-  description = "Tags to set"
-  type        = map(string)
+variable "prefix" {
+  description = "Name added to the end of each terraform stack created"
+  type        = string
 }

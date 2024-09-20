@@ -27,7 +27,7 @@ resource "aws_db_subnet_group" "this" {
 
 resource "aws_internet_gateway" "this" {
   vpc_id = aws_vpc.this.id
-  tags   = var.tags
+  tags   = {Name = "terraform-side-project-vpc-internet-gateway"}
 }
 
 resource "aws_route_table" "this" {
@@ -37,7 +37,7 @@ resource "aws_route_table" "this" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.this.id
   }
-  tags   = var.tags
+  tags   = {Name = "terraform-side-project-vpc-route-table"}
 }
 
 resource "aws_route_table_association" "route_table_association_1" {

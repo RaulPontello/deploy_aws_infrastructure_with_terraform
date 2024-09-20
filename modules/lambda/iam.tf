@@ -25,6 +25,18 @@ data "aws_iam_policy_document" "this" {
           "*"
         ]
       }
+
+    statement {
+        actions   = [
+          "ec2:CreateNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DeleteNetworkInterface",
+        ]
+        effect    = "Allow"
+        resources = [
+          "*"
+        ]
+      }
   }
 
 resource "aws_iam_policy" "this" {
