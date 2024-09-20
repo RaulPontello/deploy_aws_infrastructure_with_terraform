@@ -17,7 +17,7 @@ resource "aws_subnet" "vpc_subnet_2" {
   cidr_block              = "10.0.2.0/24"
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
-  tags                    = {Name = "terraform-side-project-vpc-subnet1"}
+  tags                    = {Name = "terraform-side-project-vpc-subnet2"}
 }
 
 resource "aws_db_subnet_group" "this" {
