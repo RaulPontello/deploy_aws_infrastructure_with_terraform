@@ -1,4 +1,6 @@
-# Zip .py file 
+locals{
+  suffix = "terraform-side-project"
+}
 
 data "archive_file" "this" {
   type        = "zip"
@@ -6,11 +8,9 @@ data "archive_file" "this" {
   output_path = replace(var.source_file, ".py", ".zip")
 }
 
-# Create AWS Lambda function
-
 resource "aws_lambda_function" "this" {
   filename         = data.archive_file.this.output_path
-  function_name    = var.function_name
+  function_name    = "${local.suffix}-${var.function_name}"
   role             = aws_iam_role.this.arn
   handler          = var.handler
   runtime          = var.runtime

@@ -1,5 +1,9 @@
+locals{
+  suffix = "terraform-side-project"
+}
+
 resource "aws_security_group" "this" {
-  name        = "terraform-side-project-rds-security-group"
+  name        = "${local.suffix}-rds-security-group"
   description = "Security group for AWS RDS instance"
   vpc_id      = var.vpc_id
   tags        = var.tags
@@ -26,7 +30,7 @@ resource "aws_db_instance" "this" {
   username                            = var.db_username
   password                            = var.db_password
   port                                = var.port
-  identifier                          = var.identifier
+  identifier                          = "${local.suffix}-${var.identifier}"
   skip_final_snapshot                 = var.skip_final_snapshot
   publicly_accessible                 = var.publicly_accessible
   iam_database_authentication_enabled = var.iam_database_authentication_enabled

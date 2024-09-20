@@ -1,7 +1,11 @@
+locals{
+  suffix = "terraform-side-project"
+}
+
 resource "aws_vpc" "this" {
   cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
-  tags                 = {Name = "terraform-side-project-vpc"}
+  tags                 = {Name = "${local.suffix}-vpc"}
 }
 
 resource "aws_subnet" "vpc_subnet_1" {
@@ -9,7 +13,7 @@ resource "aws_subnet" "vpc_subnet_1" {
   cidr_block              = "10.0.1.0/24"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
-  tags                    = {Name = "terraform-side-project-vpc-subnet1"}
+  tags                    = {Name = "${local.suffix}-vpc-subnet1"}
 }
 
 resource "aws_subnet" "vpc_subnet_2" {
@@ -17,17 +21,17 @@ resource "aws_subnet" "vpc_subnet_2" {
   cidr_block              = "10.0.2.0/24"
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
-  tags                    = {Name = "terraform-side-project-vpc-subnet2"}
+  tags                    = {Name = "${local.suffix}-vpc-subnet2"}
 }
 
 resource "aws_db_subnet_group" "this" {
-  name       = "terraform-side-project-vpc-subnet-group"
+  name       = "${local.suffix}-vpc-subnet-group"
   subnet_ids = ["${aws_subnet.vpc_subnet_1.id}", "${aws_subnet.vpc_subnet_2.id}"]
 }
 
 resource "aws_internet_gateway" "this" {
   vpc_id = aws_vpc.this.id
-  tags   = {Name = "terraform-side-project-vpc-internet-gateway"}
+  tags   = {Name = "${local.suffix}-vpc-internet-gateway"}
 }
 
 resource "aws_route_table" "this" {
@@ -37,7 +41,7 @@ resource "aws_route_table" "this" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.this.id
   }
-  tags   = {Name = "terraform-side-project-vpc-route-table"}
+  tags   = {Name = "${local.suffix}-vpc-route-table"}
 }
 
 resource "aws_route_table_association" "route_table_association_1" {

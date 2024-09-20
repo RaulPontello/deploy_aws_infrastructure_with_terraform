@@ -86,7 +86,7 @@ variable "skip_final_snapshot" {
 variable "identifier" {
   description = "The name of the RDS instance"
   type        = string
-  default     = "terraform-rds-database"
+  default     = "${var.engine}-rds-database"
 }
 
 variable "port" {
