@@ -1,6 +1,5 @@
 module "vpc" {
   source         = "./modules/vpc" 
-  tags           = var.tags
 }
 
 module "rds_instance" {
