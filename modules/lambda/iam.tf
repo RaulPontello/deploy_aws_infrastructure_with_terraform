@@ -27,10 +27,10 @@ data "aws_iam_policy_document" "this" {
       }
   }
 
-resource "aws_iam_policy" "glue_policy" {
+resource "aws_iam_policy" "this" {
   name        = "terraform-side-project-policy"
-  description = "Policy for Glue Job to access S3 buckets"
-  policy      = data.aws_iam_policy_document.glue_policy_statements.json
+  description = "Policy for AWS Lambda to access AWS RDS"
+  policy      = data.aws_iam_policy_document.this.json
 
 }
 
