@@ -1,5 +1,5 @@
 
-resource "aws_iam_role" "glue_role" {
+resource "aws_iam_role" "this" {
   name   = "terraform-side-project-role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
