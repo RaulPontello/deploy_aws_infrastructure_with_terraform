@@ -6,7 +6,7 @@ data "archive_file" "this" {
 
 resource "aws_lambda_function" "this" {
   filename         = data.archive_file.this.output_path
-  function_name    = "${var.suffix}-${var.function_name}"
+  function_name    = "${var.prefix}-${var.function_name}-${var.suffix}"
   role             = aws_iam_role.this.arn
   handler          = var.handler
   runtime          = var.runtime

@@ -3,6 +3,11 @@ variable "suffix" {
   type        = string
 }
 
+variable "prefix" {
+  description = "Prefix used in all resources names"
+  type        = string
+}
+
 variable "function_name" {
   description = "Unique name for your Lambda Function."
   type        = string

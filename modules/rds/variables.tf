@@ -3,6 +3,11 @@ variable "suffix" {
   type        = string
 }
 
+variable "prefix" {
+  description = "Prefix used in all resources names"
+  type        = string
+}
+
 variable "tags" {
   description = "Tags to set"
   type        = map(string)

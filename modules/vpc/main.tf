@@ -2,7 +2,7 @@ resource "aws_vpc" "custom_vpc" {
   count                = var.create_vpc ? 1 : 0
   cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
-  tags                 = {Name = "${var.suffix}-vpc"}
+  tags                 = {Name = "${var.prefix}-vpc-${var.suffix}"}
 }
 
 data "aws_vpc" "default_vpc" {
@@ -16,7 +16,7 @@ resource "aws_subnet" "customn_vpc_subnet_1" {
   cidr_block              = "10.0.1.0/24"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
-  tags                    = {Name = "${var.suffix}-customn-vpc-subnet-1"}
+  tags                    = {Name = "${var.prefix}-customn-vpc-subnet-1-${var.suffix}"}
 }
 
 resource "aws_subnet" "customn_vpc_subnet_2" {
@@ -25,18 +25,18 @@ resource "aws_subnet" "customn_vpc_subnet_2" {
   cidr_block              = "10.0.2.0/24"
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
-  tags                    = {Name = "${var.suffix}-customn-vpc-subnet-2"}
+  tags                    = {Name = "${var.prefix}-customn-vpc-subnet-2-${var.suffix}"}
 }
 
 resource "aws_db_subnet_group" "this" {
-  name       = "${var.suffix}-vpc-subnet-group"
+  name       = "${var.prefix}-vpc-subnet-group-${var.suffix}"
   subnet_ids = var.create_vpc ? ["${aws_subnet.customn_vpc_subnet_1.id}", "${aws_subnet.customn_vpc_subnet_2.id}"] : data.aws_vpc.default_vpc.id
 }
 
 resource "aws_internet_gateway" "this" {
   count  = var.create_vpc ? 1 : 0
   vpc_id = aws_vpc.custom_vpc.id
-  tags   = {Name = "${var.suffix}-vpc-internet-gateway"}
+  tags   = {Name = "${var.prefix}-vpc-internet-gateway-${var.suffix}"}
 }
 
 resource "aws_route_table" "this" {
@@ -47,7 +47,7 @@ resource "aws_route_table" "this" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.this.id
   }
-  tags   = {Name = "${var.suffix}-vpc-route-table"}
+  tags   = {Name = "${var.prefix}-vpc-route-table-${var.suffix}"}
 }
 
 resource "aws_route_table_association" "route_table_association_1" {

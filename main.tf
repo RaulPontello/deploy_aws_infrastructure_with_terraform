@@ -1,15 +1,18 @@
 locals{
-  suffix = "terraform-side-project"
+  suffix = "${var.aws_region}-${var.environment}"
+  prefix = "side-project"
 }
 
 module "vpc" {
   source         = "./modules/vpc" 
   suffix         = local.suffix
+  prefix         = local.prefix
 }
 
 module "rds_instance" {
   source                              = "./modules/rds" 
   suffix                              = local.suffix
+  prefix                              = local.prefix
   instance_class                      = var.instance_class
   db_name                             = var.db_name
   db_username                         = var.db_username
@@ -23,6 +26,7 @@ module "rds_instance" {
 module "lambda_function" {
   source       = "./modules/lambda" 
   suffix       = local.suffix
+  prefix       = local.prefix
   source_file  = var.source_file
   vpc_id       = module.vpc.vpc_id
   subnet_ids   = module.vpc.subnet_ids

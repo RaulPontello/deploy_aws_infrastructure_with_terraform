@@ -1,5 +1,5 @@
 resource "aws_security_group" "this" {
-  name        = "${var.suffix}-rds-security-group"
+  name        = "${var.prefix}-rds-security-group-${var.suffix}"
   description = "Security group for AWS RDS instance"
   vpc_id      = var.vpc_id
   tags        = var.tags
@@ -25,7 +25,7 @@ resource "aws_db_instance" "this" {
   username                            = var.db_username
   password                            = var.db_password
   port                                = var.port
-  identifier                          = "${var.suffix}-${var.identifier}"
+  identifier                          = "${var.prefix}-${var.identifier}-${var.suffix}"
   skip_final_snapshot                 = "true"
   publicly_accessible                 = var.publicly_accessible
   db_subnet_group_name                = var.db_subnet_group_name
