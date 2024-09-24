@@ -16,6 +16,12 @@ variable "profile_name" {
   default     = "terraform-profile"
 }
 
+variable "create_vpc" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+  default     = true
+}
+
 variable "tags" {
   description = "Tags to set"
   type        = map(string)
