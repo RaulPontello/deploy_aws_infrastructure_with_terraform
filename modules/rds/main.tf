@@ -1,9 +1,5 @@
-locals{
-  suffix = "terraform-side-project"
-}
-
 resource "aws_security_group" "this" {
-  name        = "${local.suffix}-rds-security-group"
+  name        = "${var.suffix}-rds-security-group"
   description = "Security group for AWS RDS instance"
   vpc_id      = var.vpc_id
   tags        = var.tags
@@ -23,17 +19,15 @@ resource "aws_security_group" "this" {
 
 resource "aws_db_instance" "this" {
   allocated_storage                   = var.allocated_storage
-  storage_type                        = var.storage_type
   engine                              = var.engine
-  instance_class                      = var.rds_instance_class
+  instance_class                      = var.instance_class
   db_name                             = var.db_name
   username                            = var.db_username
   password                            = var.db_password
   port                                = var.port
-  identifier                          = "${local.suffix}-${var.identifier}"
-  skip_final_snapshot                 = var.skip_final_snapshot
+  identifier                          = "${var.suffix}-${var.identifier}"
+  skip_final_snapshot                 = "true"
   publicly_accessible                 = var.publicly_accessible
-  iam_database_authentication_enabled = var.iam_database_authentication_enabled
   db_subnet_group_name                = var.db_subnet_group_name
   vpc_security_group_ids              = [aws_security_group.this.id]
 }

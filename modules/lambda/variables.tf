@@ -1,7 +1,12 @@
+variable "suffix" {
+  description = "Suffix used in all resources names"
+  type        = string
+}
+
 variable "function_name" {
   description = "Unique name for your Lambda Function."
   type        = string
-  default     = "send_data_from_api_to_rds_instance"
+  default     = "send-data-from-api-to-rds"
 }
 
 variable "handler" {

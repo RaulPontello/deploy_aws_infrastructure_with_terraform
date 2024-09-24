@@ -1,21 +1,19 @@
+locals{
+  suffix = "terraform-side-project"
+}
+
 module "vpc" {
   source         = "./modules/vpc" 
+  suffix         = local.suffix
 }
 
 module "rds_instance" {
   source                              = "./modules/rds" 
-  allocated_storage                   = var.allocated_storage
-  storage_type                        = var.storage_type
-  engine                              = var.engine
-  rds_instance_class                  = var.rds_instance_class
+  suffix                              = local.suffix
+  instance_class                      = var.instance_class
   db_name                             = var.db_name
   db_username                         = var.db_username
   db_password                         = var.db_password
-  port                                = var.port
-  identifier                          = var.identifier
-  skip_final_snapshot                 = var.skip_final_snapshot
-  publicly_accessible                 = var.publicly_accessible
-  iam_database_authentication_enabled = var.iam_database_authentication_enabled
   vpc_id                              = module.vpc.vpc_id
   db_subnet_group_name                = module.vpc.db_subnet_group_name
   depends_on                          = [module.vpc]
@@ -24,6 +22,7 @@ module "rds_instance" {
 
 module "lambda_function" {
   source       = "./modules/lambda" 
+  suffix       = local.suffix
   source_file  = var.source_file
   vpc_id       = module.vpc.vpc_id
   subnet_ids   = module.vpc.subnet_ids

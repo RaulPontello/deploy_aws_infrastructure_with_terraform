@@ -1,7 +1,3 @@
-locals{
-  suffix = "terraform-side-project"
-}
-
 data "archive_file" "this" {
   type        = "zip"
   source_file = var.source_file
@@ -10,7 +6,7 @@ data "archive_file" "this" {
 
 resource "aws_lambda_function" "this" {
   filename         = data.archive_file.this.output_path
-  function_name    = "${local.suffix}-${var.function_name}"
+  function_name    = "${var.suffix}-${var.function_name}"
   role             = aws_iam_role.this.arn
   handler          = var.handler
   runtime          = var.runtime

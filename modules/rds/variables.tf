@@ -1,3 +1,8 @@
+variable "suffix" {
+  description = "Suffix used in all resources names"
+  type        = string
+}
+
 variable "tags" {
   description = "Tags to set"
   type        = map(string)
@@ -6,16 +11,13 @@ variable "tags" {
 variable "engine" {
   description = "The database engine"
   type        = string
+  default     = "postgres"
 }
 
 variable "allocated_storage" {
   description = "The amount of allocated storage."
   type        = number
-}
-
-variable "storage_type" {
-  description = "type of the storage"
-  type        = string
+  default     = 20
 }
 
 variable "db_name" {
@@ -33,34 +35,27 @@ variable "db_password" {
   type        = string
 }
 
-variable "rds_instance_class" {
+variable "instance_class" {
   description = "The RDS instance class"
-  type        = string
-}
-
-variable "skip_final_snapshot" {
-  description = "skip snapshot"
   type        = string
 }
 
 variable "identifier" {
   description = "The name of the RDS instance"
   type        = string
+  default     = "rds-database"
 }
 
 variable "port" {
   description = "The port on which the DB accepts connections"
   type        = string
+  default     = "5432"
 }
 
 variable "publicly_accessible" {
   description = "Defines if the AWS RDS database is publicly accessible"
   type        = bool
-}
-
-variable "iam_database_authentication_enabled" {
-  description = "Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled."
-  type        = bool
+  default     = true
 }
 
 variable "vpc_id" {
