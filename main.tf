@@ -5,6 +5,7 @@ locals{
 
 module "vpc" {
   source         = "./modules/vpc" 
+  create_vpc     = var.create_vpc
   suffix         = local.suffix
   prefix         = local.prefix
 }
