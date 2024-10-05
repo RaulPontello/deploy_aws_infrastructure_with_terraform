@@ -1,4 +1,5 @@
 resource "aws_security_group" "this" {
+  count       = var.create_custom_vpc ? 1 : 0
   name        = "${var.prefix}-rds-security-group-${var.suffix}"
   description = "Security group for AWS RDS instance"
   vpc_id      = var.vpc_id
@@ -28,6 +29,6 @@ resource "aws_db_instance" "this" {
   identifier                          = "${var.prefix}-${var.identifier}-${var.suffix}"
   skip_final_snapshot                 = "true"
   publicly_accessible                 = var.publicly_accessible
-  db_subnet_group_name                = var.db_subnet_group_name
-  vpc_security_group_ids              = [aws_security_group.this.id]
+  db_subnet_group_name                = var.create_custom_vpc ? var.db_subnet_group_name : null
+  vpc_security_group_ids              = var.create_custom_vpc ? [aws_security_group.this.id] : []
 }

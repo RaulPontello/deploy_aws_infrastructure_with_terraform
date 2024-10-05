@@ -8,6 +8,11 @@ variable "prefix" {
   type        = string
 }
 
+variable "create_custom_vpc" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+}
+
 variable "tags" {
   description = "Tags to set"
   type        = map(string)
