@@ -1,3 +1,6 @@
+# Create Security Group for my AWS RDS instance to allow public traffic
+# (only created if create_custom_vpc is true)
+
 resource "aws_security_group" "this" {
   count       = var.create_custom_vpc ? 1 : 0
   name        = "${var.prefix}-rds-security-group-${var.suffix}"
@@ -18,6 +21,8 @@ resource "aws_security_group" "this" {
   }
 }
 
+# Create my AWS RDS instance
+
 resource "aws_db_instance" "this" {
   allocated_storage                   = var.allocated_storage
   engine                              = var.engine
@@ -30,5 +35,5 @@ resource "aws_db_instance" "this" {
   skip_final_snapshot                 = "true"
   publicly_accessible                 = var.publicly_accessible
   db_subnet_group_name                = var.create_custom_vpc ? var.db_subnet_group_name : null
-  vpc_security_group_ids              = var.create_custom_vpc ? [aws_security_group.this.id] : []
+  vpc_security_group_ids              = var.create_custom_vpc ? [aws_security_group.this[0].id] : []
 }
