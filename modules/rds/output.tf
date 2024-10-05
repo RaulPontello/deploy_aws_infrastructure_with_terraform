@@ -3,5 +3,5 @@ output "rds_endpoint" {
 }
 
 output "rds_instance_secret_manager_arn" {
-  value = aws_secretsmanager_secret.db_credentials.arn
+  value = aws_secretsmanager_secret.this.arn
 }
