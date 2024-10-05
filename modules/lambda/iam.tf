@@ -41,8 +41,7 @@ data "aws_iam_policy_document" "this" {
         ]
       }
 
-    statement = [
-      {
+    statement = {
         actions = [
           "secretsmanager:GetSecretValue",
           "secretsmanager:DescribeSecret"
@@ -51,8 +50,7 @@ data "aws_iam_policy_document" "this" {
         resources =  [
           var.rds_instance_secret_manager_arn
         ]
-      }
-    ]
+    }
   }
 
 # Create AWS IAM Policy using AWS IAM Policy Statements 
@@ -75,7 +73,7 @@ resource "aws_iam_role_policy_attachment" "policy_attach" {
 # (only created if create_custom_vpc is true)
 
 resource "aws_security_group" "this" {
-  count  = var.create_custom_vpc
+  count  = var.create_custom_vpc ? 1 : 0 
   vpc_id = var.vpc_id
 
   egress {
