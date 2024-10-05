@@ -1,5 +1,5 @@
 resource "aws_secretsmanager_secret" "this" {
-  name        = "${var.prefix}-${var.identifier}-${var.suffix}-secret-manager-credentials"
+  name        = "rds_instance_secret"
   description = "Credentials for RDS instance"
 }
 
