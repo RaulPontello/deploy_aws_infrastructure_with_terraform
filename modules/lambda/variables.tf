@@ -19,18 +19,6 @@ variable "function_name" {
   default     = "send-data-from-api-to-rds"
 }
 
-variable "handler" {
-  description = "Function entrypoint in your code."
-  type        = string
-  default     = "api.lambda_handler"
-}
-
-variable "runtime" {
-  description = "Identifier of the function's runtime."
-  type        = string
-  default     = "python3.12"
-}
-
 variable "vpc_id" {
   description = "The ID of the VPC"
   type        = string
@@ -43,5 +31,10 @@ variable "subnet_ids" {
 
 variable "source_file" {
   description = "(String) Package this file into the archive"
+  type        = string
+}
+
+variable "rds_instance_secret_manager_arn" {
+  description = "The ARN of the RDS credentials stored in Secrets Manager"
   type        = string
 }

@@ -49,7 +49,7 @@ data "aws_iam_policy_document" "this" {
         ]
         effect = "Allow"
         resources =  [
-          "*"
+          var.rds_instance_secret_manager_arn
         ]
       }
     ]

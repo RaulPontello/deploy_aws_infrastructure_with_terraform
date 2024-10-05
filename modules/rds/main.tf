@@ -13,4 +13,5 @@ resource "aws_db_instance" "this" {
   publicly_accessible                 = var.publicly_accessible
   db_subnet_group_name                = var.create_custom_vpc ? var.db_subnet_group_name : null
   vpc_security_group_ids              = var.create_custom_vpc ? [aws_security_group.this[0].id] : []
+  depends_on                          = [aws_secretsmanager_secret_version.this]
 }

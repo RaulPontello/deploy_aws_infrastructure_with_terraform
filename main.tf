@@ -26,13 +26,15 @@ module "rds_instance" {
 }
 
 module "lambda_function" {
-  source       = "./modules/lambda" 
-  suffix       = local.suffix
-  prefix       = local.prefix
-  source_file  = var.source_file
-  vpc_id       = module.vpc.vpc_id
-  subnet_ids   = module.vpc.subnet_ids
-  depends_on   = [module.vpc]
+  source                          = "./modules/lambda" 
+  suffix                          = local.suffix
+  prefix                          = local.prefix
+  create_custom_vpc               = var.create_custom_vpc
+  source_file                     = var.source_file
+  rds_instance_secret_manager_arn = module.rds_instance.rds_instance_secret_manager_arn
+  vpc_id                          = module.vpc.vpc_id
+  subnet_ids                      = module.vpc.subnet_ids
+  depends_on                      = [module.vpc, module.rds_instance]
 }
 
 # module "s3_bucket" {
