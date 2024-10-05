@@ -41,7 +41,7 @@ data "aws_iam_policy_document" "this" {
         ]
       }
 
-    statement = {
+    statement {
         actions = [
           "secretsmanager:GetSecretValue",
           "secretsmanager:DescribeSecret"
