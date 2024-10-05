@@ -1,6 +1,7 @@
+# Create AWS IAM Role and with policy that grants an entity permission to assume the role
 
 resource "aws_iam_role" "this" {
-  name   = "terraform-side-project-role"
+  name   = "${var.prefix}-lambda-iam-role-${var.suffix}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
@@ -14,6 +15,8 @@ resource "aws_iam_role" "this" {
     ]
   })
 }
+
+# Create AWS IAM Policy Statements
 
 data "aws_iam_policy_document" "this" {
     statement {
@@ -37,21 +40,42 @@ data "aws_iam_policy_document" "this" {
           "*"
         ]
       }
+
+    statement = [
+      {
+        actions = [
+          "secretsmanager:GetSecretValue",
+          "secretsmanager:DescribeSecret"
+        ]
+        effect = "Allow"
+        resources =  [
+          "*"
+        ]
+      }
+    ]
   }
 
+# Create AWS IAM Policy using AWS IAM Policy Statements 
+
 resource "aws_iam_policy" "this" {
-  name        = "terraform-side-project-policy"
+  name        = "${var.prefix}-lambda-iam-policy-${var.suffix}"
   description = "Policy for AWS Lambda to access AWS RDS"
   policy      = data.aws_iam_policy_document.this.json
 
 }
+
+# Attach AWS IAM Policy to AWS IAM Role
 
 resource "aws_iam_role_policy_attachment" "policy_attach" {
   role       = aws_iam_role.this.name
   policy_arn = aws_iam_policy.this.arn
 }
 
+# Create Security Group for my AWS Lambda function
+# (only created if create_custom_vpc is true)
+
 resource "aws_security_group" "this" {
+  count  = var.create_custom_vpc
   vpc_id = var.vpc_id
 
   egress {

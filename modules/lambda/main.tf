@@ -1,8 +1,12 @@
+# Zip my .py file, this .py will be execute by my AWS Lambda function
+
 data "archive_file" "this" {
   type        = "zip"
   source_file = var.source_file
   output_path = replace(var.source_file, ".py", ".zip")
 }
+
+# Create my AWS Lambda function
 
 resource "aws_lambda_function" "this" {
   filename         = data.archive_file.this.output_path
@@ -13,8 +17,8 @@ resource "aws_lambda_function" "this" {
   source_code_hash = data.archive_file.this.output_base64sha256
   
   vpc_config {
-    security_group_ids = [aws_security_group.this.id]
-    subnet_ids         = var.subnet_ids
+    security_group_ids = var.create_custom_vpc ? [aws_security_group.this[0].id] : []
+    subnet_ids         = var.create_custom_vpc ? var.subnet_ids : null
   }
 
   environment {

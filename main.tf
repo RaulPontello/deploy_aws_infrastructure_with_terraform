@@ -25,15 +25,15 @@ module "rds_instance" {
   tags                                = var.tags
 }
 
-# module "lambda_function" {
-#   source       = "./modules/lambda" 
-#   suffix       = local.suffix
-#   prefix       = local.prefix
-#   source_file  = var.source_file
-#   vpc_id       = module.vpc.vpc_id
-#   subnet_ids   = module.vpc.subnet_ids
-#   depends_on   = [module.vpc]
-# }
+module "lambda_function" {
+  source       = "./modules/lambda" 
+  suffix       = local.suffix
+  prefix       = local.prefix
+  source_file  = var.source_file
+  vpc_id       = module.vpc.vpc_id
+  subnet_ids   = module.vpc.subnet_ids
+  depends_on   = [module.vpc]
+}
 
 # module "s3_bucket" {
 #   source         = "./modules/s3" 

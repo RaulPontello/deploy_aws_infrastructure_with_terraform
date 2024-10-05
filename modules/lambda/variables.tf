@@ -8,6 +8,11 @@ variable "prefix" {
   type        = string
 }
 
+variable "create_custom_vpc" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+}
+
 variable "function_name" {
   description = "Unique name for your Lambda Function."
   type        = string
