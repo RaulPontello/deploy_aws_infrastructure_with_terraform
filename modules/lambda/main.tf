@@ -18,7 +18,7 @@ resource "aws_lambda_function" "this" {
   
   vpc_config {
     security_group_ids = var.create_custom_vpc ? [aws_security_group.this[0].id] : []
-    subnet_ids         = var.create_custom_vpc ? var.subnet_ids : null
+    subnet_ids         = var.create_custom_vpc ? var.subnet_ids : []
   }
 
   environment {
