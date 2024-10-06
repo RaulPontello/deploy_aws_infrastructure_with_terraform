@@ -55,12 +55,6 @@ variable "identifier" {
   default     = "rds-database"
 }
 
-variable "publicly_accessible" {
-  description = "Defines if the AWS RDS database is publicly accessible"
-  type        = bool
-  default     = true
-}
-
 variable "vpc_id" {
   description = "The ID of the VPC"
   type        = string
