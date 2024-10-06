@@ -7,7 +7,6 @@ resource "aws_db_instance" "this" {
   db_name                             = var.db_name
   username                            = var.db_username
   password                            = var.db_password
-  port                                = var.port
   identifier                          = "${var.prefix}-${var.identifier}-${var.suffix}"
   skip_final_snapshot                 = "true"
   publicly_accessible                 = var.publicly_accessible

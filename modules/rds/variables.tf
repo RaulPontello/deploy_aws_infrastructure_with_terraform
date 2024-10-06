@@ -55,12 +55,6 @@ variable "identifier" {
   default     = "rds-database"
 }
 
-variable "port" {
-  description = "The port on which the DB accepts connections"
-  type        = string
-  default     = "5432"
-}
-
 variable "publicly_accessible" {
   description = "Defines if the AWS RDS database is publicly accessible"
   type        = bool
