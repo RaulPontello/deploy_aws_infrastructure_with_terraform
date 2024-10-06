@@ -29,8 +29,8 @@ variable "subnet_ids" {
   type        = list(string)
 }
 
-variable "source_file" {
-  description = "(String) Package this file into the archive"
+variable "lambda_source_file" {
+  description = "Path where .py file is located, this file will be executed by AWS Lambda function"
   type        = string
 }
 

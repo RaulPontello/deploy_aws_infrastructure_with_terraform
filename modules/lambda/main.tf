@@ -2,7 +2,7 @@
 
 data "archive_file" "this" {
   type        = "zip"
-  source_file = var.source_file
+  source_file = var.lambda_source_file
   output_path = replace(var.source_file, ".py", ".zip")
 }
 

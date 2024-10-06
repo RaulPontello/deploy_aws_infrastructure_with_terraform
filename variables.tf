@@ -47,6 +47,11 @@ variable "db_name" {
   default     = "crypto_database"
 }
 
+variable "rds_instance_engine" {
+  description = "The database engine"
+  type        = string
+}
+
 variable "db_username" {
   description = "Username for the master DB user."
   type        = string
@@ -65,7 +70,9 @@ variable "instance_class" {
   default     = "db.t3.micro"
 }
 
-variable "source_file" {
-  description = "(String) Package this file into the archive"
+# Variables for AWS Lambda
+
+variable "lambda_source_file" {
+  description = "Path where .py file is located, this file will be executed by AWS Lambda function"
   type        = string
 }

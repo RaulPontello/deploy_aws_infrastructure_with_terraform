@@ -18,10 +18,9 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "engine" {
+variable "rds_instance_engine" {
   description = "The database engine"
   type        = string
-  default     = "postgres"
 }
 
 variable "allocated_storage" {

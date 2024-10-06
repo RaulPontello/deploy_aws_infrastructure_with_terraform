@@ -16,6 +16,7 @@ module "rds_instance" {
   prefix                              = local.prefix
   create_custom_vpc                   = var.create_custom_vpc
   instance_class                      = var.instance_class
+  rds_instance_engine                 = var.rds_instance_engine
   db_name                             = var.db_name
   db_username                         = var.db_username
   db_password                         = var.db_password
@@ -30,7 +31,7 @@ module "lambda_function" {
   suffix                          = local.suffix
   prefix                          = local.prefix
   create_custom_vpc               = var.create_custom_vpc
-  source_file                     = var.source_file
+  lambda_source_file              = var.lambda_source_file
   rds_instance_secret_manager_arn = module.rds_instance.rds_instance_secret_manager_arn
   vpc_id                          = module.vpc.vpc_id
   subnet_ids                      = module.vpc.subnet_ids

@@ -2,7 +2,7 @@
 
 resource "aws_db_instance" "this" {
   allocated_storage                   = var.allocated_storage
-  engine                              = var.engine
+  engine                              = var.rds_instance_engine
   instance_class                      = var.instance_class
   db_name                             = var.db_name
   username                            = var.db_username
