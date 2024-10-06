@@ -6,7 +6,7 @@ Hello folks, you have come to the right place if you want to learn Terrafom and 
 
 This repository is dedicated to deploying AWS resources using Terraform. This is an educational project, the solutions presented are not intended for production level. The goal of this repository is to teach how to use Terrafom with AWS resources.
 
-## 🌟 QuickStart
+## 👉 QuickStart
 
 You can use my module this way:
 
@@ -70,7 +70,7 @@ For documentation on each resource implemented in this project, refer to the REA
    aws configure --profile your_profile_name   # Create a new profile called 'your_profile_name'
    aws configure list-profiles                 # List all profiles
    ```
-   
+
 In this project, your_profile_name is defined in variables.tf and is used in providers.tf.
 
 ## 🛠️ Useful Terraform Commands
