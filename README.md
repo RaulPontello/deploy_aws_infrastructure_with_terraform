@@ -22,6 +22,7 @@ You can use my module this way:
       create_custom_vpc   = false
       rds_instance_engine = "mysql"
    }
+   ```
 
 
 ## 📚 Documentation
@@ -68,7 +69,8 @@ For documentation on each resource implemented in this project, refer to the REA
    ```bash
    aws configure --profile your_profile_name   # Create a new profile called 'your_profile_name'
    aws configure list-profiles                 # List all profiles
-
+   ```
+   
 In this project, your_profile_name is defined in variables.tf and is used in providers.tf.
 
 ## 🛠️ Useful Terraform Commands
