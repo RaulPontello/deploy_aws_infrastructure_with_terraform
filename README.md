@@ -6,6 +6,24 @@ Hello folks, you have come to the right place if you want to learn Terrafom and 
 
 This repository is dedicated to deploying AWS resources using Terraform. This is an educational project, the solutions presented are not intended for production level. The goal of this repository is to teach how to use Terrafom with AWS resources.
 
+## 🌟 QuickStart
+
+You can use my module this way:
+
+   ```bash
+   # create_custom_vpc = true (create all AWS resouces inside a Custom VPC), false (use Default VPC)
+   # rds_instance_engine = engine attribute of aws_db_instance (DBMS allowed: mysql, postgres)
+
+   module "data_ingestion"{
+      source              = "git::https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform.git"
+      aws_region          = "us-east-1"
+      environment         = "dev"
+      lambda_source_file  = "./python/from_API_to_RDS.py"
+      create_custom_vpc   = false
+      rds_instance_engine = "mysql"
+   }
+
+
 ## 📚 Documentation
 
 **Terraform documentation for AWS**
