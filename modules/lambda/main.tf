@@ -3,7 +3,7 @@
 data "archive_file" "this" {
   type        = "zip"
   source_file = var.lambda_source_file
-  output_path = replace(var.source_file, ".py", ".zip")
+  output_path = replace(var.lambda_source_file, ".py", ".zip")
 }
 
 # Create my AWS Lambda function
