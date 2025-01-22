@@ -3,11 +3,10 @@ provider "aws" {
   profile = var.profile_name
   default_tags {
     tags = {
-    name        = "Side Project"
-    environment = var.environment
-    owner       = "Raul Pontello"
-    aws_region  = var.aws_region
-    terraform   = "true"
+    environment  = var.environment
+    project_name = var.project_name
+    aws_region   = var.aws_region
+    terraform    = "true"
     }
   }
 }

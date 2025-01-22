@@ -10,6 +10,11 @@ variable "environment" {
   type        = string
 }
 
+variable "project_name" {
+  description = "Name of the project"
+  type        = string
+}
+
 variable "profile_name" {
   description = "Name of the profile used"
   type        = string
