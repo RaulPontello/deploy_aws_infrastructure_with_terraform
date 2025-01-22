@@ -13,11 +13,6 @@ variable "create_custom_vpc" {
   type        = bool
 }
 
-variable "tags" {
-  description = "Tags to set"
-  type        = map(string)
-}
-
 variable "rds_instance_engine" {
   description = "The database engine"
   type        = string

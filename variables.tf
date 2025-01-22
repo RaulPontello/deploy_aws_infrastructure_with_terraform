@@ -22,15 +22,6 @@ variable "create_custom_vpc" {
   default     = true
 }
 
-variable "tags" {
-  description = "Tags to set"
-  type        = map(string)
-  default     = {
-    Name        = "Side Project"
-    Environment = "Owner: Raul Pontello"
-  }
-}
-
 # Variables for AWS S3
 
 variable "s3_bucket_name" {

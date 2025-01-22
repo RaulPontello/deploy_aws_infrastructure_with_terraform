@@ -23,7 +23,6 @@ module "rds_instance" {
   vpc_id                              = module.vpc.vpc_id
   db_subnet_group_name                = module.vpc.db_subnet_group_name
   depends_on                          = [module.vpc]
-  tags                                = var.tags
 }
 
 module "lambda_function" {
@@ -41,6 +40,5 @@ module "lambda_function" {
 # module "s3_bucket" {
 #   source         = "./modules/s3" 
 #   s3_bucket_name = var.s3_bucket_name
-#   tags           = var.tags
 #   depends_on     = [module.vpc, module.rds_instance]
 # }
