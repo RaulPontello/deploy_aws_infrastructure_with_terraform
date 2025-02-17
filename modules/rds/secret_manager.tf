@@ -21,3 +21,9 @@ resource "aws_secretsmanager_secret_version" "this" {
     password = random_password.this.result
 })
 }
+
+# Retrieve created secret
+
+data "aws_secretsmanager_secret_version" "db_secret" {
+  secret_id = aws_secretsmanager_secret.this.id
+}

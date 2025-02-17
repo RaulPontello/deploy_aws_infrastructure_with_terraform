@@ -1,12 +1,16 @@
 # Create my AWS RDS instance
 
+locals {
+  db_credentials = jsondecode(data.aws_secretsmanager_secret_version.db_secret.secret_string)
+}
+
 resource "aws_db_instance" "this" {
   allocated_storage                   = var.allocated_storage
   engine                              = var.rds_instance_engine
   instance_class                      = var.instance_class
   db_name                             = var.db_name
-  username                            = var.db_username
-  password                            = aws_secretsmanager_secret_version.this.secret_string["password"]
+  username                            = local.db_credentials["username"]
+  password                            = local.db_credentials["password"]
   identifier                          = "${var.prefix}-${var.identifier}-${var.suffix}"
   skip_final_snapshot                 = var.skip_final_snapshot
   publicly_accessible                 = var.publicly_accessible
