@@ -37,7 +37,7 @@ variable "numeric" {
 
 variable "override_special" {
   description = "Whether to create a new VPC or use the default one."
-  type        = bool
+  type        = string
   default     = "!#$%&*()-_=+[]{}<>:?"
 }
 
