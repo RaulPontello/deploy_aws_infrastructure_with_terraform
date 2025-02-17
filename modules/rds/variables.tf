@@ -1,3 +1,5 @@
+# Other variables
+
 variable "suffix" {
   description = "Suffix used in all resources names"
   type        = string
@@ -13,7 +15,57 @@ variable "create_custom_vpc" {
   type        = bool
 }
 
+# Variables for AWS Secrets Manager
+
+variable "length" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = number
+  default     = 10
+}
+
+variable "special" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+  default     = false
+}
+
+variable "numeric" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+  default     = true
+}
+
+variable "override_special" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+  default     = "!#$%&*()-_=+[]{}<>:?"
+}
+
+variable "recovery_window_in_days" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = number
+  default     = 10
+}
+
+variable "force_overwrite_replica_secret" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+  default     = "true"
+}
+
+variable "db_username" {
+  description = "Username for the master DB user."
+  type        = string
+}
+
+# Variables for AWS RDS
+
 variable "rds_instance_engine" {
+  description = "The database engine"
+  type        = string
+}
+
+variable "port" {
   description = "The database engine"
   type        = string
 }
@@ -26,16 +78,6 @@ variable "allocated_storage" {
 
 variable "db_name" {
   description = "Database name"
-  type        = string
-}
-
-variable "db_username" {
-  description = "Username for the master DB user."
-  type        = string
-}
-
-variable "db_password" {
-  description = "Password of the database" 
   type        = string
 }
 
@@ -56,6 +98,18 @@ variable "vpc_id" {
 }
 
 variable "db_subnet_group_name" {
-  description = "Name of DB subnet group created in VPC moduçe"
+  description = "Name of DB subnet group created in VPC module"
   type        = string
+}
+
+variable "skip_final_snapshot" {
+  description = "Determines whether a final DB snapshot is created before the DB instance is deleted"
+  type        = string
+  default     = "true"
+}
+
+variable "publicly_accessible" {
+  description = "Bool to control if instance is publicly accessible. Default is false."
+  type        = string
+  default     = "true"
 }
