@@ -18,7 +18,6 @@ variable "project_name" {
 variable "profile_name" {
   description = "Name of the profile used"
   type        = string
-  default     = "terraform-profile"
 }
 
 variable "create_custom_vpc" {

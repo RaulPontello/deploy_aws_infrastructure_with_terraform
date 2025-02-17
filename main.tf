@@ -36,9 +36,3 @@ module "lambda_function" {
   subnet_ids                      = module.vpc.subnet_ids
   depends_on                      = [module.vpc, module.rds_instance]
 }
-
-# module "s3_bucket" {
-#   source         = "./modules/s3" 
-#   s3_bucket_name = var.s3_bucket_name
-#   depends_on     = [module.vpc, module.rds_instance]
-# }
