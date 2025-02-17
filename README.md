@@ -16,8 +16,10 @@ You can use my module this way:
 
    module "data_ingestion"{
       source              = "git::https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform.git"
+      profile_name        = "my_profile"
       aws_region          = "us-east-1"
       environment         = "dev"
+      project_name        = "deploy_aws_with_terraform"
       lambda_source_file  = "./python/from_API_to_RDS.py"
       create_custom_vpc   = false
       rds_instance_engine = "mysql"
