@@ -74,12 +74,12 @@ For documentation on each resource implemented in this project, refer to the REA
 In this project, your_profile_name is defined in variables.tf and is used in providers.tf.
 
 ## 🛠️ Useful Terraform Commands
-   - terraform apply
-   - terraform apply -destroy
    - terraform init --upgrade
    - terraform validate
    - terraform plan
+   - terraform apply
    - terraform output
+   - terraform apply -destroy
 
    Execution Sequence:
    
