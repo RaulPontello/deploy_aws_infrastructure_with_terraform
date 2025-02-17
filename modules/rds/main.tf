@@ -5,8 +5,8 @@ resource "aws_db_instance" "this" {
   engine                              = var.rds_instance_engine
   instance_class                      = var.instance_class
   db_name                             = var.db_name
-  username                            = jsondecode(data.aws_secretsmanager_secret_version.aws_secretsmanager_secret_version.rds_secret_version)["username"]
-  password                            = jsondecode(data.aws_secretsmanager_secret_version.aws_secretsmanager_secret_version.rds_secret_version)["password"]
+  username                            = var.db_username
+  password                            = aws_secretsmanager_secret_version.rds_secret_version.secret_string["password"]
   identifier                          = "${var.prefix}-${var.identifier}-${var.suffix}"
   skip_final_snapshot                 = var.skip_final_snapshot
   publicly_accessible                 = var.publicly_accessible
