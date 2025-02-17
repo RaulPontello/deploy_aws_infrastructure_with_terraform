@@ -65,11 +65,6 @@ variable "rds_instance_engine" {
   type        = string
 }
 
-variable "port" {
-  description = "The database engine"
-  type        = string
-}
-
 variable "allocated_storage" {
   description = "The amount of allocated storage."
   type        = number
