@@ -90,6 +90,8 @@ In this project, your_profile_name is defined in variables.tf and is used in pro
    - terraform output
    - terraform apply -destroy
 
+These Terraform commands initialize and upgrade dependencies (init --upgrade), validate the configuration (validate), create an execution plan (plan), apply changes (apply), retrieve output values (output), and destroy resources (apply -destroy).
+
    Execution Sequence:
    
    terraform init → terraform validate → terraform plan → terraform apply → terraform output
