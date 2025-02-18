@@ -1,0 +1,23 @@
+# Create Security Group for my AWS RDS instance
+
+resource "aws_security_group" "this" {
+  name        = "${var.prefix}-rds-security-group-${var.suffix}"
+  description = "Security group for ${var.prefix}-${var.identifier}-${var.suffix} RDS instance"
+  vpc_id      = var.create_custom_vpc ? var.vpc_id : data.aws_vpc.default[0].id
+
+  ingress {
+    from_port   = var.rds_instance_engine == "mysql" ? 3306 : 5432
+    to_port     = var.rds_instance_engine == "mysql" ? 3306 : 5432
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.my_ip.response_body)}/32"]
+    description = "Allow MySQL access from my personal IP"
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow all outbound traffic"
+  }
+}
