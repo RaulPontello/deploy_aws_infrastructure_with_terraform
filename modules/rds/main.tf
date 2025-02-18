@@ -1,8 +1,14 @@
-# Create my AWS RDS instance
+# Retrieve created secret
+
+data "aws_secretsmanager_secret_version" "db_secret" {
+  secret_id = aws_secretsmanager_secret.this.id
+}
 
 locals {
   db_credentials = jsondecode(data.aws_secretsmanager_secret_version.db_secret.secret_string)
 }
+
+# Create my AWS RDS instance
 
 resource "aws_db_instance" "this" {
   allocated_storage                   = var.allocated_storage
