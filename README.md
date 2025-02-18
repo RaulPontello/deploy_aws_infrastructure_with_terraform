@@ -26,6 +26,13 @@ You can use my module this way:
    }
    ```
 
+Remember to use this command to run your lambda function, you can run it in AWS CloudShell for example.
+
+   ```bash
+   
+   aws lambda invoke --function-name my_lambda_function_name response.json
+
+   ```
 
 ## 📚 Documentation
 
