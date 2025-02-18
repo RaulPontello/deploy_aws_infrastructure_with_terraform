@@ -1,7 +1,7 @@
 # Get the user's public IP
 
 data "http" "my_ip" {
-  url = "https://ifconfig.me/ip"
+  url = "https://ipv4.icanhazip.com"
 }
 
 # Get the default VPC ID if needed
