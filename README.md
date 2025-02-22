@@ -6,7 +6,7 @@ Hello folks, you have come to the right place if you want to learn Terrafom and 
 
 This repository is dedicated to deploying AWS resources using Terraform. This is an educational project, the solutions presented are not intended for production level. The goal of this repository is to teach how to use Terrafom with AWS resources.
 
-The mission of this repository is simple: Given a Public API, extract data from it using AWS Lambda and send the data to a database inside AWS RDS.
+The mission of this repository is simple: Given a Public API, use AWS Lambda to extract data from it and send the data to a database inside AWS RDS.
 
 ## 👉 QuickStart
 
