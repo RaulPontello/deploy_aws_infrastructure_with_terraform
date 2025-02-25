@@ -19,7 +19,7 @@ With this repository, you will learn the following AWS resources using Terraform
 
 ## 👉 QuickStart
 
-Use the following repoitory strucutre:
+Use the following repository structure:
 
    ```bash
       my-local-repository/
@@ -28,7 +28,7 @@ Use the following repoitory strucutre:
       │   │── my_lambda_fuction.py  # .py file with code that AWS Lambda will execute
    ```
 
-You can call deploy_aws_infrastructure_with_terraform module this way:
+You can call deploy_aws_infrastructure_with_terraform module this way (copy code below into main.tf):
 
    ```bash
    # create_custom_vpc = true (create all AWS resouces inside a Custom VPC), false (use Default VPC)
