@@ -23,9 +23,9 @@ Use the following repository structure:
 
    ```bash
       my-local-repository/
-      │── main.tf                   # .tf file where we call deploy_aws_infrastructure_with_terraform module 
+      │── main.tf                   # We call deploy_aws_infrastructure_with_terraform module 
       │── python/                       
-      │   │── my_lambda_fuction.py  # .py file with code that AWS Lambda will execute
+      │   │── my_lambda_fuction.py  # AWS Lambda will execute this code
    ```
 
 You can call deploy_aws_infrastructure_with_terraform module this way (copy code below into main.tf):
