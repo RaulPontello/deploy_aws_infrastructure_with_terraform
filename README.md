@@ -19,13 +19,22 @@ With this repository, you will learn the following AWS resources using Terraform
 
 ## 👉 QuickStart
 
-You can use my module this way:
+Use the following repoitory strucutre:
+
+   ```bash
+      my-local-repository/
+      │── main.tf                   # .tf file where we call deploy_aws_infrastructure_with_terraform module 
+      │── python/                       
+      │   │── my_lambda_fuction.py  # .py file with code that AWS Lambda will execute
+   ```
+
+You can call deploy_aws_infrastructure_with_terraform module this way:
 
    ```bash
    # create_custom_vpc = true (create all AWS resouces inside a Custom VPC), false (use Default VPC)
    # rds_instance_engine = engine attribute of aws_db_instance (DBMS allowed: mysql, postgres)
 
-   module "data_ingestion"{
+   module "deploy_aws_infrastructure_with_terraform"{
       source              = "git::https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform.git"
       profile_name        = "my_profile"
       aws_region          = "us-east-1"
