@@ -8,6 +8,15 @@ This repository is dedicated to deploying AWS resources using Terraform. This is
 
 The mission of this repository is simple: Given a Public API, use AWS Lambda to extract data from it and send the data to a database inside AWS RDS.
 
+With this repository, you will learn the following AWS resources using Terraform:
+- AWS VPC: https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
+- AWS RDS: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html
+- AWS Lambda: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+- AWS Security Group: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html
+- AWS IAM Role: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+- AWS CloudWatch: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html
+- AWS Secrets Manager: https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html
+
 ## 👉 QuickStart
 
 You can use my module this way:
