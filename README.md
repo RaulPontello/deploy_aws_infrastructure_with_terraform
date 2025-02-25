@@ -49,9 +49,7 @@ You can call deploy_aws_infrastructure_with_terraform module this way (copy code
 Remember to use this command to run your lambda function, you can run it in AWS CloudShell for example.
 
    ```bash
-   
    aws lambda invoke --function-name my_lambda_function_name response.json
-
    ```
 
 ## 📚 Documentation
@@ -115,3 +113,17 @@ These Terraform commands initialize and upgrade dependencies (init --upgrade), v
    Execution Sequence:
    
    terraform init → terraform validate → terraform plan → terraform apply → terraform output
+
+To create automatic Terraform documentation, you can use this command:
+
+   ```bash
+   terraform-docs markdown . > README.md
+   ```
+
+Follow this official GIT repository for more information: https://github.com/terraform-docs/terraform-docs
+
+To verify if terraform-docs was installed, run:  
+
+   ```bash
+   terraform-docs --version
+   ```
