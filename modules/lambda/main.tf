@@ -1,3 +1,7 @@
+locals{
+  function_name = "${var.prefix}-lambda-function"
+}
+
 # Zip my .py file, this .py will be execute by my AWS Lambda function
 
 data "archive_file" "this" {
@@ -10,7 +14,7 @@ data "archive_file" "this" {
 
 resource "aws_lambda_function" "this" {
   filename         = data.archive_file.this.output_path
-  function_name    = "${var.prefix}-${var.function_name}-${var.suffix}"
+  function_name    = "${local.function_name}"
   role             = aws_iam_role.this.arn
   handler          = "api.lambda_handler"
   runtime          = "python3.12"

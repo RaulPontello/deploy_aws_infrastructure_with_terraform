@@ -1,18 +1,15 @@
 locals{
-  suffix = "${var.aws_region}-${var.environment}"
-  prefix = "side-project"
+  prefix = "${var.project_name}-${var.aws_region}-${var.environment}"
 }
 
 module "vpc" {
   source            = "./modules/vpc" 
-  suffix            = local.suffix
   prefix            = local.prefix
   create_custom_vpc = var.create_custom_vpc
 }
 
 module "rds_instance" {
   source                              = "./modules/rds" 
-  suffix                              = local.suffix
   prefix                              = local.prefix
   create_custom_vpc                   = var.create_custom_vpc
   instance_class                      = var.instance_class
@@ -26,7 +23,6 @@ module "rds_instance" {
 
 module "lambda_function" {
   source                          = "./modules/lambda" 
-  suffix                          = local.suffix
   prefix                          = local.prefix
   create_custom_vpc               = var.create_custom_vpc
   lambda_source_file              = var.lambda_source_file

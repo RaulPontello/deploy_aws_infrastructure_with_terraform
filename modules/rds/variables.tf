@@ -1,10 +1,5 @@
 # Other variables
 
-variable "suffix" {
-  description = "Suffix used in all resources names"
-  type        = string
-}
-
 variable "prefix" {
   description = "Prefix used in all resources names"
   type        = string
@@ -79,12 +74,6 @@ variable "db_name" {
 variable "instance_class" {
   description = "The RDS instance class"
   type        = string
-}
-
-variable "identifier" {
-  description = "The name of the RDS instance"
-  type        = string
-  default     = "rds-database"
 }
 
 variable "vpc_id" {

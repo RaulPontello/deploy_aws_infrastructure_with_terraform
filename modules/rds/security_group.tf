@@ -1,8 +1,8 @@
 # Create Security Group for my AWS RDS instance
 
 resource "aws_security_group" "this" {
-  name        = "${var.prefix}-rds-security-group-${var.suffix}"
-  description = "Security group for ${var.prefix}-${var.identifier}-${var.suffix} RDS instance"
+  name        = "${local.identifier}-security-group"
+  description = "Security group for ${local.identifier}"
   vpc_id      = var.create_custom_vpc ? var.vpc_id : data.aws_vpc.default[0].id
 
   ingress {

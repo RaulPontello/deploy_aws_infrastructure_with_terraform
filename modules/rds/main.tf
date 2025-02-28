@@ -1,3 +1,7 @@
+locals{
+  identifier = "${var.prefix}-rds-instance"
+}
+
 # Retrieve created secret
 
 data "aws_secretsmanager_secret_version" "db_secret" {
@@ -17,7 +21,7 @@ resource "aws_db_instance" "this" {
   db_name                             = var.db_name
   username                            = local.db_credentials["username"]
   password                            = local.db_credentials["password"]
-  identifier                          = "${var.prefix}-${var.identifier}-${var.suffix}"
+  identifier                          = local.identifier
   skip_final_snapshot                 = var.skip_final_snapshot
   publicly_accessible                 = var.publicly_accessible
   db_subnet_group_name                = var.create_custom_vpc ? var.db_subnet_group_name : null

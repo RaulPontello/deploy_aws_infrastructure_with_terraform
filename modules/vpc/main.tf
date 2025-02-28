@@ -20,7 +20,7 @@ resource "aws_subnet" "custom_vpc_subnets" {
 
 resource "aws_db_subnet_group" "this" {
   count      = var.create_custom_vpc ? 1 : 0
-  name       = "${var.prefix}-vpc-subnet-group-${var.suffix}"
+  name       = "${var.prefix}-vpc-subnet-group"
   subnet_ids = aws_subnet.custom_vpc_subnets[*].id
 }
 
