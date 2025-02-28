@@ -38,3 +38,8 @@ variable "rds_instance_secret_manager_arn" {
   description = "The ARN of the RDS credentials stored in Secrets Manager"
   type        = string
 }
+
+variable "retention_in_days" {
+  description = "retention_in_days"
+  type        = number
+}
