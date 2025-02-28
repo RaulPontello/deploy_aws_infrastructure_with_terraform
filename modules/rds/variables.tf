@@ -44,13 +44,13 @@ variable "override_special" {
 variable "recovery_window_in_days" {
   description = "Whether to create a new VPC or use the default one."
   type        = number
-  default     = 10
+  default     = 0
 }
 
 variable "force_overwrite_replica_secret" {
   description = "Whether to create a new VPC or use the default one."
   type        = bool
-  default     = "true"
+  default     = true
 }
 
 variable "db_username" {
