@@ -1,6 +1,6 @@
-# 🚀 Deploy AWS Infrastructure with Terraform
+# 🚀 Deploy AWS Infrastructure with Terraform 🚀
 
-## 🌟 Introduction
+## Introduction
 
 Hello folks, you have come to the right place if you want to learn Terrafom and AWS.
 
@@ -17,7 +17,7 @@ With this repository, you will learn the following AWS resources using Terraform
 - AWS CloudWatch: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html
 - AWS Secrets Manager: https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html
 
-## 👉 QuickStart
+## QuickStart
 
 Use the following repository structure:
 
@@ -52,7 +52,7 @@ Remember to use this command to run your lambda function, you can run it in AWS 
    aws lambda invoke --function-name my_lambda_function_name response.json
    ```
 
-## 📚 Tagging
+## Tagging
 
 All AWS resources are tagged using Terraform provider's default_tags property:
 
@@ -69,8 +69,8 @@ All AWS resources are tagged using Terraform provider's default_tags property:
          }
          }
    ```
-   
-## 📚 Documentation
+
+## Documentation
 
 **Terraform documentation for AWS**
 
@@ -78,7 +78,7 @@ All AWS resources are tagged using Terraform provider's default_tags property:
 
 For documentation on each resource implemented in this project, refer to the README file of each module.
 
-## 🚀 Before You Start
+## Before You Start
 
 1. **Create an AWS Account**
    - [AWS Account](https://aws.amazon.com/resources/create-account/)
@@ -118,7 +118,7 @@ For documentation on each resource implemented in this project, refer to the REA
 
 In this project, your_profile_name is defined in variables.tf and is used in providers.tf.
 
-## 🛠️ Useful Terraform Commands
+## Useful Terraform Commands
    - terraform init --upgrade
    - terraform validate
    - terraform plan
