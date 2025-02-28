@@ -10,7 +10,7 @@ resource "aws_security_group" "this" {
     to_port     = var.rds_instance_engine == "mysql" ? 3306 : 5432
     protocol    = "tcp"
     cidr_blocks = ["${chomp(data.http.my_ip.response_body)}/32"]
-    description = "Allow MySQL access from my personal IP"
+    description = "Allow inbound access for my personal IP"
   }
 
   egress {
