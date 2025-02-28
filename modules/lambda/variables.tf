@@ -42,4 +42,5 @@ variable "rds_instance_secret_manager_arn" {
 variable "retention_in_days" {
   description = "retention_in_days"
   type        = number
+  default     = 3
 }
