@@ -39,7 +39,7 @@ You can call deploy_aws_infrastructure_with_terraform module this way (copy code
       profile_name        = "my_profile"
       aws_region          = "us-east-1"
       environment         = "dev"
-      project_name        = "deploy_aws_with_terraform"
+      project_name        = "deploy-aws-with-terraform"
       lambda_source_file  = "./python/from_API_to_RDS.py"
       create_custom_vpc   = false
       rds_instance_engine = "mysql"
@@ -52,6 +52,24 @@ Remember to use this command to run your lambda function, you can run it in AWS 
    aws lambda invoke --function-name my_lambda_function_name response.json
    ```
 
+## 📚 Tagging
+
+All AWS resources are tagged using Terraform provider's default_tags property:
+
+   ```bash
+      provider "aws" {
+         region = var.aws_region
+         profile = var.profile_name
+         default_tags {
+            tags = {
+            environment  = var.environment
+            project_name = var.project_name
+            terraform    = "true"
+            }
+         }
+         }
+   ```
+   
 ## 📚 Documentation
 
 **Terraform documentation for AWS**
