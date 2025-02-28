@@ -1,15 +1,12 @@
-locals{
-  identifier = "${var.prefix}-rds-instance"
-}
-
 # Retrieve created secret
 
-data "aws_secretsmanager_secret_version" "db_secret" {
+data "aws_secretsmanager_secret_version" "this" {
   secret_id = aws_secretsmanager_secret.this.id
 }
 
-locals {
-  db_credentials = jsondecode(data.aws_secretsmanager_secret_version.db_secret.secret_string)
+locals{
+  identifier = "${var.prefix}-rds-instance"
+  db_credentials = jsondecode(aws_secretsmanager_secret_version.this.secret_string)
 }
 
 # Create my AWS RDS instance
