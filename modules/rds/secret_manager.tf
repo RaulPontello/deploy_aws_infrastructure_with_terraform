@@ -8,7 +8,7 @@ resource "random_password" "this" {
 }
 
 resource "aws_secretsmanager_secret" "this" {
-  name                           = "${var.prefix}-${var.identifier}-${var.suffix}-secret"
+  name                           = "${var.prefix}-${var.identifier}-${var.suffix}-aws-secret"
   recovery_window_in_days        = var.recovery_window_in_days
   force_overwrite_replica_secret = var.force_overwrite_replica_secret
   description                    = "This secret will be used to for ${var.prefix}-${var.identifier}-${var.suffix} rds instance"
