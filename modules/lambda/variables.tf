@@ -8,12 +8,6 @@ variable "create_custom_vpc" {
   type        = bool
 }
 
-variable "function_name" {
-  description = "Unique name for your Lambda Function."
-  type        = string
-  default     = "send-data-from-api-to-rds"
-}
-
 variable "vpc_id" {
   description = "The ID of the VPC"
   type        = string

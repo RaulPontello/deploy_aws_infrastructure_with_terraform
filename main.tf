@@ -1,5 +1,5 @@
 locals{
-  prefix = "${var.project_name}-${var.aws_region}-${var.environment}"
+  prefix = "${var.project_name}-${var.environment}"
 }
 
 module "vpc" {
