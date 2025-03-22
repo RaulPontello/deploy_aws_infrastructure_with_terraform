@@ -25,7 +25,7 @@ module "lambda_function" {
   source                          = "./modules/lambda" 
   prefix                          = local.prefix
   create_custom_vpc               = var.create_custom_vpc
-  lambda_source_file              = var.lambda_source_file
+  python_file_name                = var.python_file_name
   rds_instance_secret_manager_arn = module.rds_instance.rds_instance_secret_manager_arn
   vpc_id                          = module.vpc.vpc_id
   subnet_ids                      = module.vpc.subnet_ids
