@@ -1,8 +1,3 @@
-locals{
-  function_name    = "${var.prefix}-lambda-function"
-  python_file_name = replace(basename(var.lambda_source_file), ".py", "")
-}
-
 # Zip my .py file, this .py will be execute by my AWS Lambda function
 
 # resource "null_resource" "this" {
