@@ -1,5 +1,6 @@
 locals{
-  function_name = "${var.prefix}-lambda-function"
+  function_name    = "${var.prefix}-lambda-function"
+  python_file_name = regex("([^/]+)\\.py$", var.lambda_source_file)
 }
 
 # Zip my .py file, this .py will be execute by my AWS Lambda function
