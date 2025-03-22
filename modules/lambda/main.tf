@@ -43,8 +43,6 @@ resource "aws_lambda_function" "this" {
   handler          = "${local.python_file_name}.lambda_handler"
   runtime          = var.runtime
   source_code_hash = data.archive_file.this.output_base64sha256
-  s3_bucket       = aws_s3_bucket.this.id
-  s3_key          = aws_s3_object.this.key
   
   vpc_config {
     security_group_ids = var.create_custom_vpc ? [aws_security_group.this[0].id] : []
@@ -56,6 +54,4 @@ resource "aws_lambda_function" "this" {
       foo = "bar"
     }
   }
-
-  depends_on = [null_resource.this]
 }
