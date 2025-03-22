@@ -5,6 +5,11 @@ variable "aws_region" {
   type        = string
 }
 
+variable "owner" {
+  description = "Owner of this project"
+  type        = string
+}
+
 variable "environment" {
   description = "Name of the environment used. Ex: dev, qa, prod"
   type        = string

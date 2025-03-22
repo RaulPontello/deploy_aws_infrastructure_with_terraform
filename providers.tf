@@ -6,6 +6,7 @@ provider "aws" {
     environment  = var.environment
     project_name = var.project_name
     terraform    = "true"
+    owner        = var.owner
     }
   }
 }
