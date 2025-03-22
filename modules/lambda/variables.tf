@@ -33,3 +33,9 @@ variable "retention_in_days" {
   type        = number
   default     = 3
 }
+
+variable "runtime" {
+  description = "runtime"
+  type        = string
+  default     = "python3.12"
+}
