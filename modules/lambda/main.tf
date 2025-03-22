@@ -11,6 +11,32 @@ data "archive_file" "this" {
   output_path = replace(var.lambda_source_file, ".py", ".zip")
 }
 
+# Create my AWS Lambda function layer
+
+resource "aws_lambda_layer_version" "this" {
+	  layer_name          = "${local.function_name}-layer"
+	  s3_bucket            = aws_s3_object.this.id
+	  source_code_hash    = data.archive_file.this.output_base64sha256
+	  compatible_runtimes = [var.runtime]
+}
+
+# Package libraries
+
+resource "null_resource" "main" {
+  provisioner "local-exec" {
+    command = <<EOT
+      rm -rf python
+      mkdir -p python
+      pip install pymysql psycopg2 -t python
+      cd python && zip -r ../lambda.zip .
+    EOT
+  }
+
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+}
+
 # Create my AWS Lambda function
 
 resource "aws_lambda_function" "this" {
@@ -18,7 +44,7 @@ resource "aws_lambda_function" "this" {
   function_name    = "${local.function_name}"
   role             = aws_iam_role.this.arn
   handler          = "${local.python_file_name}.lambda_handler"
-  runtime          = "python3.12"
+  runtime          = var.runtime
   source_code_hash = data.archive_file.this.output_base64sha256
   
   vpc_config {
@@ -31,4 +57,6 @@ resource "aws_lambda_function" "this" {
       foo = "bar"
     }
   }
+
+  depends_on = [aws_lambda_layer_version.this, null_resource.this]
 }
