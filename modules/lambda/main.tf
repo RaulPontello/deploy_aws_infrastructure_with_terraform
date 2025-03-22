@@ -16,7 +16,7 @@ resource "aws_lambda_function" "this" {
   filename         = data.archive_file.this.output_path
   function_name    = "${local.function_name}"
   role             = aws_iam_role.this.arn
-  handler          = "api.lambda_handler"
+  handler          = "lambda_function.lambda_handler"
   runtime          = "python3.12"
   source_code_hash = data.archive_file.this.output_base64sha256
   
