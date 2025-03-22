@@ -19,8 +19,8 @@
 
 # data "archive_file" "this" {
 #   type        = "zip"
-#   source_file = var.lambda_source_file
-#   output_path = replace(var.lambda_source_file, ".py", ".zip")
+#   source_file = var.python_file_name
+#   output_path = replace(var.python_file_name, ".py", ".zip")
 # }
 
 data "archive_file" "this" {
@@ -35,7 +35,7 @@ resource "aws_lambda_function" "this" {
   filename         = data.archive_file.this.output_path
   function_name    = "${local.function_name}"
   role             = aws_iam_role.this.arn
-  handler          = "${local.python_file_name}.lambda_handler"
+  handler          = "${var.python_file_name}.lambda_handler"
   runtime          = var.runtime
   source_code_hash = data.archive_file.this.output_base64sha256
   
