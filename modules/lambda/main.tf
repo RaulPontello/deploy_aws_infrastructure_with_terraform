@@ -32,7 +32,7 @@ data "archive_file" "this" {
 # Create my AWS Lambda function
 
 resource "aws_lambda_function" "this" {
-  filename         = "lambda_package.zip"
+  filename         = "${path.root}/python/zip/lambda_package.zip"
   #source_code_hash = data.archive_file.this.output_base64sha256
   function_name    = "${local.function_name}"
   role             = aws_iam_role.this.arn
