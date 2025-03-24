@@ -23,8 +23,8 @@ Use the following repository structure:
 
    ```bash
       my-local-repository/
-      │── main.tf                   # We call deploy_aws_infrastructure_with_terraform module 
-      │── python/                       
+      │── main.tf                   # We call deploy_aws_infrastructure_with_terraform module here
+      │── python                    
       │   │── my_lambda_fuction.py  # AWS Lambda will execute this code
       │   │── requirements.txt      # requirements for my Lambda Function
    ```
