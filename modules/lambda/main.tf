@@ -23,11 +23,11 @@
 #   output_path = replace(var.python_file_name, ".py", ".zip")
 # }
 
-data "archive_file" "this" {
-  type        = "zip"
-  source_dir  = "${path.root}/python"
-  output_path = "${path.root}/lambda_package.zip"
-}
+# data "archive_file" "this" {
+#   type        = "zip"
+#   source_dir  = "${path.root}/python"
+#   output_path = "${path.root}/lambda_package.zip"
+# }
 
 # Create my AWS Lambda function
 
