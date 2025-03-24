@@ -26,7 +26,7 @@
 data "archive_file" "this" {
   type        = "zip"
   source_dir  = "${path.root}/python"
-  output_path = "${path.root}/python/zip/lambda_package.zip"
+  output_path = "${path.root}/lambda_package.zip"
 }
 
 # Create my AWS Lambda function
