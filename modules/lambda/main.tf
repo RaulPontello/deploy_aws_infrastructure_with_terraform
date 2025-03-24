@@ -26,13 +26,13 @@
 data "archive_file" "this" {
   type        = "zip"
   source_dir  = "${path.root}/python"
-  output_path = "${path.root}/lambda_package.zip"
+  output_path = "${path.root}/lambda/lambda_package.zip"
 }
 
 # Create my AWS Lambda function
 
 resource "aws_lambda_function" "this" {
-  filename         = "${path.root}/lambda_package.zip"
+  filename         = "${path.root}/lambda/lambda_package.zip"
   #source_code_hash = data.archive_file.this.output_base64sha256
   function_name    = "${local.function_name}"
   role             = aws_iam_role.this.arn
