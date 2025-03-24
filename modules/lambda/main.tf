@@ -32,12 +32,12 @@ data "archive_file" "this" {
 # Create my AWS Lambda function
 
 resource "aws_lambda_function" "this" {
-  filename         = data.archive_file.this.output_path
+  filename         = "lambda_package.zip"
+  #source_code_hash = data.archive_file.this.output_base64sha256
   function_name    = "${local.function_name}"
   role             = aws_iam_role.this.arn
   handler          = "${var.python_file_name}.lambda_handler"
   runtime          = var.runtime
-  source_code_hash = data.archive_file.this.output_base64sha256
   
   vpc_config {
     security_group_ids = var.create_custom_vpc ? [aws_security_group.this[0].id] : []
