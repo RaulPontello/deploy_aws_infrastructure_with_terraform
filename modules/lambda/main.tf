@@ -23,17 +23,18 @@
 #   output_path = replace(var.python_file_name, ".py", ".zip")
 # }
 
-# data "archive_file" "this" {
-#   type        = "zip"
-#   source_dir  = "${path.root}/python"
-#   output_path = "${path.root}/lambda_package.zip"
-# }
+data "archive_file" "this" {
+  type        = "zip"
+  source_dir  = "${path.root}/python"
+  output_path = "${path.root}/lambda_package.zip"
+}
 
 # Create my AWS Lambda function
 
 resource "aws_lambda_function" "this" {
-  filename         = "${path.root}/lambda_package.zip"
-  #source_code_hash = data.archive_file.this.output_base64sha256
+  filename         = data.archive_file.this.output_path
+  #filename         = "${path.root}/lambda_package.zip"
+  source_code_hash = data.archive_file.this.output_base64sha256
   function_name    = "${local.function_name}"
   role             = aws_iam_role.this.arn
   handler          = "${var.python_file_name}.lambda_handler"
