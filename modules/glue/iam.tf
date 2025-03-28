@@ -65,6 +65,14 @@ data "aws_iam_policy_document" "this" {
           var.rds_instance_secret_manager_arn
         ]
     }
+
+    statement {
+        actions = [
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ]
+        effect = "Allow"
+        Resource = "arn:aws:logs:*:*:log-group:/aws-glue/jobs/*"
   }
 
 # Create AWS IAM Policy using AWS IAM Policy Statements 

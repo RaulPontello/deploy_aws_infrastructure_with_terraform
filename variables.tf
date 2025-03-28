@@ -39,11 +39,6 @@ variable "db_name" {
   default     = "crypto_database"
 }
 
-variable "rds_instance_engine" {
-  description = "The database engine"
-  type        = string
-}
-
 variable "db_username" {
   description = "Username for the master DB user."
   type        = string

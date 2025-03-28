@@ -15,5 +15,7 @@ resource "aws_glue_job" "this" {
     "--continuous-log-logGroup"          = aws_cloudwatch_log_group.this.name
     "--enable-continuous-cloudwatch-log" = "true"
     "--enable-continuous-log-filter"     = "true"
+    "--enable-metrics"                   = "true"
+    "--job-language"                     = "python"
 }
 }

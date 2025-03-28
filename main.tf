@@ -13,7 +13,6 @@ module "rds_instance" {
   prefix                              = local.prefix
   create_custom_vpc                   = var.create_custom_vpc
   instance_class                      = var.instance_class
-  rds_instance_engine                 = var.rds_instance_engine
   db_name                             = var.db_name
   db_username                         = var.db_username
   vpc_id                              = module.vpc.vpc_id
