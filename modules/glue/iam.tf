@@ -72,7 +72,7 @@ data "aws_iam_policy_document" "this" {
           "logs:PutLogEvents"
         ]
         effect = "Allow"
-        resource = "arn:aws:logs:*:*:log-group:/aws-glue/jobs/*"
+        resources = ["arn:aws:logs:*:*:log-group:/aws-glue/jobs/*"]
     }
   }
 
