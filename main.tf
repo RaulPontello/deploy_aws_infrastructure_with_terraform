@@ -21,8 +21,8 @@ module "rds_instance" {
   depends_on                          = [module.vpc]
 }
 
-module "lambda_function" {
-  source                          = "./modules/lambda" 
+module "glue_job" {
+  source                          = "./modules/glue" 
   prefix                          = local.prefix
   create_custom_vpc               = var.create_custom_vpc
   python_file_name                = var.python_file_name
