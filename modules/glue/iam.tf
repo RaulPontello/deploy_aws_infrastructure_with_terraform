@@ -37,8 +37,8 @@ data "aws_iam_policy_document" "this" {
         ]
         effect    = "Allow"
         resources = [
-          aws_s3_bucket.this.bucket,
-          "${aws_s3_bucket.this.bucket}/*"
+          aws_s3_bucket.this.arn,
+          "${aws_s3_bucket.this.arn}/*"
 
         ]
       }
