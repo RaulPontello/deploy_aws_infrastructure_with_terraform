@@ -1,7 +1,8 @@
 # Create AWS IAM Role and with policy that grants an entity permission to assume the role
 
 resource "aws_iam_role" "this" {
-  name   = "${var.prefix}-glue-job-iam-role"
+  name   = "${var.prefix}-iam-role"
+  description = "IAM Role used by ${var.prefix}-glue-job"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
@@ -79,8 +80,8 @@ data "aws_iam_policy_document" "this" {
 # Create AWS IAM Policy using AWS IAM Policy Statements 
 
 resource "aws_iam_policy" "this" {
-  name        = "${var.prefix}-glue-job-iam-policy"
-  description = "Policy for AWS Glue to access AWS RDS"
+  name        = "${var.prefix}-iam-policy"
+  description = "IAM Policy used by ${var.prefix}-glue-job"
   policy      = data.aws_iam_policy_document.this.json
 
 }
