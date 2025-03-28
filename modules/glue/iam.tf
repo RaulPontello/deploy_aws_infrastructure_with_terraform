@@ -1,7 +1,7 @@
 # Create AWS IAM Role and with policy that grants an entity permission to assume the role
 
 resource "aws_iam_role" "this" {
-  name   = "${local.function_name}-iam-role"
+  name   = "${local.function_name}-glue-job-iam-role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
@@ -9,7 +9,7 @@ resource "aws_iam_role" "this" {
         Action    = "sts:AssumeRole",
         Effect    = "Allow",
         Principal = {
-          Service = "lambda.amazonaws.com"
+          Service = "glue.amazonaws.com"
         }
       }
     ]
