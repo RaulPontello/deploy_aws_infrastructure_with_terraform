@@ -31,6 +31,20 @@ data "aws_iam_policy_document" "this" {
 
     statement {
         actions   = [
+          "s3:GetObject",
+          "s3:ListBucket"
+
+        ]
+        effect    = "Allow"
+        resources = [
+          aws_s3_bucket.this.bucket,
+          "${aws_s3_bucket.this.bucket}/*"
+
+        ]
+      }
+
+    statement {
+        actions   = [
           "ec2:CreateNetworkInterface",
           "ec2:DescribeNetworkInterfaces",
           "ec2:DeleteNetworkInterface",
