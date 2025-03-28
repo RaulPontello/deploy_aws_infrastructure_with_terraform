@@ -1,6 +1,6 @@
 resource "aws_glue_job" "this" {
   name     = "${var.prefix}-glue-job"
-  role_arn = aws_iam_role.glue_role.arn
+  role_arn = aws_iam_role.this.arn
 
   command {
     script_location = "s3://${aws_s3_bucket.this.id}/${local.python_file_name}.py"
