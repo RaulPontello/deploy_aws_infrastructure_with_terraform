@@ -16,3 +16,4 @@ resource "aws_glue_job" "this" {
     "--enable-continuous-cloudwatch-log" = "true"
     "--enable-continuous-log-filter"     = "true"
 }
+}
