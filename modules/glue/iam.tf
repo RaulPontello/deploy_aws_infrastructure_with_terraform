@@ -73,6 +73,7 @@ data "aws_iam_policy_document" "this" {
         ]
         effect = "Allow"
         Resource = "arn:aws:logs:*:*:log-group:/aws-glue/jobs/*"
+    }
   }
 
 # Create AWS IAM Policy using AWS IAM Policy Statements 
