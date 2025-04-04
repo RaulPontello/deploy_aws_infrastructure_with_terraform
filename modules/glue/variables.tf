@@ -23,6 +23,11 @@ variable "database_name" {
   type        = string
 }
 
+variable "database_host" {
+  description = "database_host"
+  type        = string
+}
+
 variable "vpc_id" {
   description = "The ID of the VPC"
   type        = string

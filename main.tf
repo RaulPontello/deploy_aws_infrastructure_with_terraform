@@ -26,6 +26,7 @@ module "glue_job" {
   aws_region                      = var.aws_region
   secret_name                     = module.rds_instance.secret_name
   database_name                   = var.database_name
+  database_host                   = module.rds_instance.rds_endpoint
   create_custom_vpc               = var.create_custom_vpc
   python_file_name                = var.python_file_name
   rds_instance_secret_manager_arn = module.rds_instance.rds_instance_secret_manager_arn

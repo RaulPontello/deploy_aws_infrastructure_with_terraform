@@ -20,6 +20,8 @@ resource "aws_glue_job" "this" {
     "--secret_name"                      = var.secret_name
     "--aws_region"                       = var.aws_region
     "--database_name"                    = var.database_name
+    "--database_host"                    = var.database_host
+
 
 }
 }
