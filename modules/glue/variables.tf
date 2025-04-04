@@ -3,9 +3,19 @@ variable "prefix" {
   type        = string
 }
 
+variable "aws_region" {
+  description = "Region were tools will be created"
+  type        = string
+}
+
 variable "create_custom_vpc" {
   description = "Whether to create a new VPC or use the default one."
   type        = bool
+}
+
+variable "secret_name" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = string
 }
 
 variable "vpc_id" {

@@ -17,5 +17,8 @@ resource "aws_glue_job" "this" {
     "--enable-continuous-log-filter"     = "true"
     "--enable-metrics"                   = "true"
     "--job-language"                     = "python"
+    "--secret_name"                      = var.secret_name
+    "--aws_region"                       = var.aws_region
+
 }
 }

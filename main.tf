@@ -23,6 +23,8 @@ module "rds_instance" {
 module "glue_job" {
   source                          = "./modules/glue" 
   prefix                          = local.prefix
+  aws_region                      = var.aws_region
+  secret_name                     = module.rds_instance.secret_name
   create_custom_vpc               = var.create_custom_vpc
   python_file_name                = var.python_file_name
   rds_instance_secret_manager_arn = module.rds_instance.rds_instance_secret_manager_arn
