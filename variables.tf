@@ -33,7 +33,7 @@ variable "create_custom_vpc" {
 
 # Variables for AWS RDS
 
-variable "db_name" {
+variable "database_name" {
   description = "Database name"
   type        = string
   default     = "crypto_database"

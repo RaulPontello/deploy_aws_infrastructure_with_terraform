@@ -19,6 +19,7 @@ resource "aws_glue_job" "this" {
     "--job-language"                     = "python"
     "--secret_name"                      = var.secret_name
     "--aws_region"                       = var.aws_region
+    "--database_name"                    = var.database_name
 
 }
 }

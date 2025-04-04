@@ -67,7 +67,7 @@ variable "allocated_storage" {
   default     = 20
 }
 
-variable "db_name" {
+variable "database_name" {
   description = "Database name"
   type        = string
 }
