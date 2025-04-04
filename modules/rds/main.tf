@@ -10,7 +10,7 @@ resource "aws_db_instance" "this" {
   allocated_storage                   = var.allocated_storage
   engine                              = var.rds_instance_engine
   instance_class                      = var.instance_class
-  database_name                       = var.database_name
+  db_name                             = var.database_name
   username                            = local.db_credentials["username"]
   password                            = local.db_credentials["password"]
   identifier                          = local.identifier
