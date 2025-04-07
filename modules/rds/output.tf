@@ -1,5 +1,5 @@
 output "rds_endpoint" {
-  value = aws_db_instance.this.adress
+  value = aws_db_instance.this.address
 }
 
 output "rds_instance_secret_manager_arn" {
