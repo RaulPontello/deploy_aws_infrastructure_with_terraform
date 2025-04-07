@@ -69,10 +69,12 @@ data "aws_iam_policy_document" "this" {
 
     statement {
         actions = [
-          "logs:*"
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
         ]
         effect = "Allow"
-        resources = ["arn:aws:logs:*:*:log-group:/aws-glue/jobs/*"]
+        resources = ["/aws/glue/${var.prefix}-glue-job"]
     }
   }
 
