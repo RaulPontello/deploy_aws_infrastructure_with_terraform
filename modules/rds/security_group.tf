@@ -5,6 +5,8 @@ resource "aws_security_group" "this" {
   description = "Security group for ${local.identifier}"
   vpc_id      = var.create_custom_vpc ? var.vpc_id : data.aws_vpc.default[0].id
 
+  # Ingress for personal IP
+
   ingress {
     from_port   = var.rds_instance_engine == "mysql" ? 3306 : 5432
     to_port     = var.rds_instance_engine == "mysql" ? 3306 : 5432
@@ -12,6 +14,18 @@ resource "aws_security_group" "this" {
     cidr_blocks = ["${chomp(data.http.my_ip.response_body)}/32"]
     description = "Allow inbound access for my personal IP"
   }
+
+  # Ingress for 0.0.0.0/0 (access from anywhere)
+
+  ingress {
+    from_port   = var.rds_instance_engine == "mysql" ? 3306 : 5432
+    to_port     = var.rds_instance_engine == "mysql" ? 3306 : 5432
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow inbound access from anywhere"
+  }
+
+  # Egress
 
   egress {
     from_port   = 0
