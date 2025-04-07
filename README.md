@@ -6,12 +6,12 @@ Hello folks, you have come to the right place if you want to learn Terrafom and 
 
 This repository is dedicated to deploying AWS resources using Terraform. This is an educational project, the solutions presented are not intended for production level. The goal of this repository is to teach how to use Terrafom with AWS resources.
 
-The mission of this repository is simple: Given a Public API, use AWS Lambda to extract data from it and send the data to a database inside AWS RDS.
+The mission of this repository is simple: Given a Public API, use AWS Glue to extract data from it and send the data to a database inside AWS RDS.
 
 With this repository, you will learn the following AWS resources using Terraform:
 - AWS VPC: https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
 - AWS RDS: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html
-- AWS Lambda: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+- AWS Glue: https://docs.amazonaws.cn/en_us/glue/latest/dg/what-is-glue.html
 - AWS Security Group: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html
 - AWS IAM Role: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
 - AWS CloudWatch: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html
@@ -44,12 +44,6 @@ You can call deploy_aws_infrastructure_with_terraform module this way (copy code
       create_custom_vpc   = false
       rds_instance_engine = "mysql"
    }
-   ```
-
-Remember to use this command to run your lambda function, you can run it in AWS CloudShell for example:
-
-   ```bash
-   aws lambda invoke --function-name my_lambda_function_name response.json
    ```
 
 ## Tagging
