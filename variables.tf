@@ -51,6 +51,11 @@ variable "instance_class" {
   default     = "db.t3.micro"
 }
 
+variable "rds_instance_engine" {
+  description = "The database engine"
+  type        = string
+}
+
 # Variables for AWS Lambda
 
 variable "python_file_name" {

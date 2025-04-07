@@ -25,16 +25,7 @@ Use the following repository structure:
       my-local-repository/
       │── main.tf                   # We call deploy_aws_infrastructure_with_terraform module here
       │── python                    
-      │   │── my_lambda_fuction.py  # AWS Lambda will execute this code
-      │   │── requirements.txt      # requirements for my Lambda Function
-   ```
-You can install requirements.txt this way (copy code below and run in your terminal):
-
-   ```bash
-   cd python
-   pip install -r requirements.txt -t .
-   cd ..
-   zip -r lambda_package.zip python/
+      │   │── my_glue_job.py       # AWS Glue will execute this code
    ```
 
 You can call deploy_aws_infrastructure_with_terraform module this way (copy code below into main.tf):
