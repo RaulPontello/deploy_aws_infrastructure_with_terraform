@@ -74,7 +74,7 @@ data "aws_iam_policy_document" "this" {
         "logs:PutLogEvents"
         ]
         effect = "Allow"
-        resources = ["/aws/glue/${var.prefix}-glue-job"]
+        resources = ["*"]
     }
   }
 
