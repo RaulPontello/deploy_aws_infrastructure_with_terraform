@@ -58,7 +58,6 @@ variable "db_username" {
 variable "rds_instance_engine" {
   description = "The database engine"
   type        = string
-  default     = "mysql"
 }
 
 variable "allocated_storage" {
