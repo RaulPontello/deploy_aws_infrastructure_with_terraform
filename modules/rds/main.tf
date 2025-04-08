@@ -15,7 +15,7 @@ resource "aws_db_instance" "this" {
   password                            = local.db_credentials["password"]
   identifier                          = local.identifier
   skip_final_snapshot                 = var.skip_final_snapshot
-  publicly_accessible                 = var.publicly_accessible
+  publicly_accessible                 = var.use_public_subnet ? true : false
   db_subnet_group_name                = var.create_custom_vpc ? var.db_subnet_group_name : null
   vpc_security_group_ids              = [aws_security_group.this.id]
   depends_on                          = [aws_secretsmanager_secret_version.this]

@@ -10,6 +10,11 @@ variable "create_custom_vpc" {
   type        = bool
 }
 
+variable "use_public_subnet" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+}
+
 # Variables for AWS Secrets Manager
 
 variable "length" {
@@ -89,12 +94,6 @@ variable "db_subnet_group_name" {
 
 variable "skip_final_snapshot" {
   description = "Determines whether a final DB snapshot is created before the DB instance is deleted"
-  type        = string
-  default     = "true"
-}
-
-variable "publicly_accessible" {
-  description = "Bool to control if instance is publicly accessible. Default is false."
   type        = string
   default     = "true"
 }

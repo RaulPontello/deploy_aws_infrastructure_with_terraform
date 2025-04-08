@@ -13,6 +13,7 @@ module "rds_instance" {
   source                              = "./modules/rds" 
   prefix                              = local.prefix
   create_custom_vpc                   = var.create_custom_vpc
+  use_public_subnet                   = var.use_public_subnet
   instance_class                      = var.instance_class
   database_name                       = var.database_name
   db_username                         = var.db_username
