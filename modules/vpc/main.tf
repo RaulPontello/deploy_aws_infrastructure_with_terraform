@@ -2,7 +2,7 @@
 
 resource "aws_vpc" "custom_vpc" {
   count                = var.create_custom_vpc ? 1 : 0
-  cidr_block           = "10.0.0.0/16"
+  cidr_block           = "10.0.0.0/12"
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
@@ -22,7 +22,7 @@ resource "aws_vpc" "custom_vpc" {
 resource "aws_subnet" "public" {
   count             = var.create_custom_vpc ? 1 : 0
   vpc_id            = aws_vpc.custom_vpc[0].id
-  cidr_block        = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, 16)
+  cidr_block        = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, 2)
   availability_zone = var.availability_zones[count.index]
   map_public_ip_on_launch = true
   tags = {
@@ -33,7 +33,7 @@ resource "aws_subnet" "public" {
 resource "aws_subnet" "private" {
   count             = var.create_custom_vpc ? 1 : 0
   vpc_id            = aws_vpc.custom_vpc[0].id
-  cidr_block        = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, 16)
+  cidr_block        = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, 2)
   availability_zone = var.availability_zones[count.index]
   tags = {
     Name = "${var.prefix}-custom-vpc-private-subnet"
