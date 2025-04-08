@@ -6,6 +6,7 @@ module "vpc" {
   source            = "./modules/vpc" 
   prefix            = local.prefix
   create_custom_vpc = var.create_custom_vpc
+  use_public_subnet = var.use_public_subnet
 }
 
 module "rds_instance" {

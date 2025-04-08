@@ -22,7 +22,5 @@ resource "aws_glue_job" "this" {
     "--aws_region"                       = var.aws_region
     "--database_name"                    = var.database_name
     "--database_host"                    = var.database_host
-
-
 }
 }

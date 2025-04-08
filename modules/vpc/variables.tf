@@ -8,6 +8,11 @@ variable "create_custom_vpc" {
   type        = bool
 }
 
+variable "use_public_subnet" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+}
+
 variable "availability_zones" {
   description = "List of availability zones"
   type        = list(string)

@@ -31,6 +31,12 @@ variable "create_custom_vpc" {
   default     = true
 }
 
+variable "use_public_subnet" {
+  description = "Whether to create a new VPC or use the default one."
+  type        = bool
+  default     = true
+}
+
 # Variables for AWS RDS
 
 variable "database_name" {
