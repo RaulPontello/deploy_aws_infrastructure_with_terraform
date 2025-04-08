@@ -12,40 +12,47 @@ resource "aws_vpc" "custom_vpc" {
 
 # Create public and private subnets
 
-# resource "aws_subnet" "custom_vpc_subnets" {
-#   count                   = var.create_custom_vpc ? length(var.availability_zones) : 0
-#   vpc_id                  = aws_vpc.custom_vpc[0].id
-#   cidr_block              = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 8, count.index + 1)
-#   availability_zone       = var.availability_zones[count.index]
+resource "aws_subnet" "custom_vpc_public_subnets" {
+  count                   = var.create_custom_vpc ? length(var.availability_zones) : 0
+  vpc_id                  = aws_vpc.custom_vpc[0].id
+  cidr_block              = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 8, count.index + 1)
+  availability_zone       = var.availability_zones[count.index]
+}
+
+resource "aws_subnet" "custom_vpc_private_subnets" {
+  count                   = var.create_custom_vpc ? length(var.availability_zones) : 0
+  vpc_id                  = aws_vpc.custom_vpc[0].id
+  cidr_block              = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 8, count.index + 1)
+  availability_zone       = var.availability_zones[count.index]
+}
+
+# resource "aws_subnet" "public" {
+#   count             = var.create_custom_vpc ? 1 : 0
+#   vpc_id            = aws_vpc.custom_vpc[0].id
+#   cidr_block        = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, 10)
+#   availability_zone = var.availability_zones[count.index]
+#   map_public_ip_on_launch = true
+#   tags = {
+#     Name = "${var.prefix}-custom-vpc-public-subnet"
+#   }
 # }
 
-resource "aws_subnet" "public" {
-  count             = var.create_custom_vpc ? 1 : 0
-  vpc_id            = aws_vpc.custom_vpc[0].id
-  cidr_block        = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, 10)
-  availability_zone = var.availability_zones[count.index]
-  map_public_ip_on_launch = true
-  tags = {
-    Name = "${var.prefix}-custom-vpc-public-subnet"
-  }
-}
-
-resource "aws_subnet" "private" {
-  count             = var.create_custom_vpc ? 1 : 0
-  vpc_id            = aws_vpc.custom_vpc[0].id
-  cidr_block        = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, 12)
-  availability_zone = var.availability_zones[count.index]
-  tags = {
-    Name = "${var.prefix}-custom-vpc-private-subnet"
-  }
-}
+# resource "aws_subnet" "private" {
+#   count             = var.create_custom_vpc ? 1 : 0
+#   vpc_id            = aws_vpc.custom_vpc[0].id
+#   cidr_block        = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, 12)
+#   availability_zone = var.availability_zones[count.index]
+#   tags = {
+#     Name = "${var.prefix}-custom-vpc-private-subnet"
+#   }
+# }
 
 # DB Subnet Group (uses subnets created above)
 
 resource "aws_db_subnet_group" "this" {
   count      = var.create_custom_vpc ? 1 : 0
   name       = "${var.prefix}-vpc-subnet-group"
-  subnet_ids = var.use_public_subnet ? [aws_subnet.public[count.index].id] : [aws_subnet.private[count.index].id]
+  subnet_ids = var.use_public_subnet ? [aws_subnet.custom_vpc_public_subnets[count.index].id] : [aws_subnet.custom_vpc_private_subnets[count.index].id]
 }
 
 # Internet Gateway
