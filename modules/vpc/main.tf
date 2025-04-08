@@ -45,7 +45,7 @@ resource "aws_subnet" "private" {
 resource "aws_db_subnet_group" "this" {
   count      = var.create_custom_vpc ? 1 : 0
   name       = "${var.prefix}-vpc-subnet-group"
-  subnet_ids = var.use_public_subnet ? aws_subnet.public[count.index].id : aws_subnet.private[count.index].id
+  subnet_ids = var.use_public_subnet ? [aws_subnet.public[count.index].id] : [aws_subnet.private[count.index].id]
 }
 
 # Internet Gateway
