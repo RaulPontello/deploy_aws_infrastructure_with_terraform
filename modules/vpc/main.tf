@@ -84,6 +84,6 @@ resource "aws_route_table" "this" {
 
 resource "aws_route_table_association" "route_table_associations" {
   count          = var.create_custom_vpc ? 1 : 0
-  subnet_id      = aws_subnet.public[count.index].id
+  subnet_id      = aws_subnet.custom_vpc_public_subnets[count.index].id
   route_table_id = aws_route_table.this[0].id
 }
