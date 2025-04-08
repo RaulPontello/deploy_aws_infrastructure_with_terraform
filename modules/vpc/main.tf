@@ -12,18 +12,24 @@ resource "aws_vpc" "custom_vpc" {
 
 # Create public and private subnets
 
-resource "aws_subnet" "custom_vpc_public_subnets" {
+resource "aws_subnet" "public_subnets" {
   count                   = var.create_custom_vpc ? length(var.availability_zones) : 0
   vpc_id                  = aws_vpc.custom_vpc[0].id
   cidr_block              = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 8, count.index + 1)
   availability_zone       = var.availability_zones[count.index]
+  tags = {
+    Name = "${var.prefix}-custom-vpc-public-subnet-${count.index}"
+  }
 }
 
-resource "aws_subnet" "custom_vpc_private_subnets" {
+resource "aws_subnet" "private_subnets" {
   count                   = var.create_custom_vpc ? length(var.availability_zones) : 0
   vpc_id                  = aws_vpc.custom_vpc[0].id
-  cidr_block              = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 8, count.index + 1)
+  cidr_block              = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 8, count.index + 2)
   availability_zone       = var.availability_zones[count.index]
+  tags = {
+    Name = "${var.prefix}-custom-vpc-public-subnet-${count.index}"
+  }
 }
 
 # resource "aws_subnet" "public" {
@@ -52,7 +58,7 @@ resource "aws_subnet" "custom_vpc_private_subnets" {
 resource "aws_db_subnet_group" "this" {
   count      = var.create_custom_vpc ? 1 : 0
   name       = "${var.prefix}-vpc-subnet-group"
-  subnet_ids = var.use_public_subnet ? [aws_subnet.custom_vpc_public_subnets[count.index].id] : [aws_subnet.custom_vpc_private_subnets[count.index].id]
+  subnet_ids = var.use_public_subnet ? [aws_subnet.public_subnets[count.index].id] : [aws_subnet.private_subnets[count.index].id]
 }
 
 # Internet Gateway
@@ -84,6 +90,6 @@ resource "aws_route_table" "this" {
 
 resource "aws_route_table_association" "route_table_associations" {
   count          = var.create_custom_vpc ? 1 : 0
-  subnet_id      = aws_subnet.custom_vpc_public_subnets[count.index].id
+  subnet_id      = aws_subnet.public_subnets[count.index].id
   route_table_id = aws_route_table.this[0].id
 }
