@@ -4,7 +4,7 @@ output "vpc_id" {
 }
 
 output "subnet_ids" {
-  value = var.create_custom_vpc ? (var.use_public_subnet ? aws_subnet.public[count.index].id  : aws_subnet.private[count.index].id) : ["default_vpc"]
+  value = var.create_custom_vpc ? (var.use_public_subnet ? aws_subnet.public[0].id  : aws_subnet.private[0].id) : ["default_vpc"]
   description = "List of subnet IDs used for the RDS subnet group."
 }
 
