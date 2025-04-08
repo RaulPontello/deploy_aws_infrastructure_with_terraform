@@ -33,6 +33,6 @@ module "glue_job" {
   python_file_name                = var.python_file_name
   rds_instance_secret_manager_arn = module.rds_instance.rds_instance_secret_manager_arn
   vpc_id                          = module.vpc.vpc_id
-  subnet_ids                      = module.vpc.subnet_ids
+  #subnet_ids                      = module.vpc.subnet_ids
   depends_on                      = [module.vpc, module.rds_instance]
 }

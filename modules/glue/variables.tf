@@ -33,10 +33,10 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "subnet_ids" {
-  description = "List of Subnet IDs"
-  type        = list(string)
-}
+# variable "subnet_ids" {
+#   description = "List of Subnet IDs"
+#   type        = list(string)
+# }
 
 variable "python_file_name" {
   description = "Path where .py file is located, this file will be executed by AWS Lambda function"
