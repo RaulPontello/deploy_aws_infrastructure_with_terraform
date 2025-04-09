@@ -47,6 +47,8 @@ You can call deploy_aws_infrastructure_with_terraform module this way (copy code
    }
    ```
 
+If you want a python file sample that extracts data from a public API, you can find it [here](https://github.com/RaulPontello/Python/blob/master/from_API_to_RDS.py)
+
 ## Tagging
 
 All AWS resources are tagged using Terraform provider's default_tags property:
@@ -72,9 +74,9 @@ All AWS resources are tagged using Terraform provider's default_tags property:
 - [Getting Started with AWS and Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started)
 
 For documentation on each resource implemented in this project, refer to the README file of each module:
-   - [VPC](https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform/blob/main/modules/vpc/README.md)
-   - [RDS](https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform/blob/main/modules/rds/README.md)
-   - [GLUE](https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform/blob/main/modules/glue/README.md)
+   - [VPC README](https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform/blob/main/modules/vpc/README.md)
+   - [RDS README](https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform/blob/main/modules/rds/README.md)
+   - [GLUE README](https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform/blob/main/modules/glue/README.md)
 
 ## Before You Start
 
