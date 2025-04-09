@@ -49,7 +49,7 @@ variable "rds_instance_secret_manager_arn" {
 
 
 variable "glue_version" {
-  description = "The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater."
+  description = "The version of glue to use, for example 1.0. Ray jobs should set this to 4.0 or greater."
   type        = string
   default     = "3.0"
 }

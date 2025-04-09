@@ -8,8 +8,8 @@ resource "aws_security_group" "this" {
   # Ingress for personal IP
 
   ingress {
-    from_port   = var.rds_instance_engine == "mysql" ? 3306
-    to_port     = var.rds_instance_engine == "mysql" ? 3306
+    from_port   = 3306
+    to_port     = 3306
     protocol    = "tcp"
     cidr_blocks = ["${chomp(data.http.my_ip.response_body)}/32"]
     description = "Allow inbound access for my personal IP"
