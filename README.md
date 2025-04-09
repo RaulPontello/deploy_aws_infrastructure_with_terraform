@@ -6,7 +6,7 @@ Hello folks, you have come to the right place if you want to learn Terrafom and 
 
 This repository is dedicated to deploying AWS resources using Terraform. This is an educational project, the solutions presented are not intended for production level. The goal of this repository is to teach how to use Terrafom with AWS resources.
 
-The mission of this repository is simple: Given a Public API, use AWS Glue to extract data from it and send the data to a database inside AWS RDS.
+The mission of this repository is simple: Given a Public API, use AWS Glue to extract data from it and send the data to a database inside AWS RDS. We can create the RDS Instance using the Default VPC or using a Custom VPC where the RDS Instance will be place inside a Public Subnet.
 
 With this repository, you will learn the following AWS resources using Terraform:
 - AWS VPC: https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
@@ -31,18 +31,19 @@ Use the following repository structure:
 You can call deploy_aws_infrastructure_with_terraform module this way (copy code below into main.tf):
 
    ```bash
-   # create_custom_vpc = true (create all AWS resouces inside a Custom VPC), false (use Default VPC)
-   # rds_instance_engine = engine attribute of aws_db_instance (DBMS allowed: mysql, postgres)
+   # create_custom_vpc
+   #    true = create all AWS resouces inside a Custom VPC Public Subne 
+   #    false = use Default VPC
 
    module "deploy_aws_infrastructure_with_terraform"{
       source              = "git::https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform.git"
       profile_name        = "my_profile"
       aws_region          = "us-east-1"
       environment         = "dev"
+      owner               = "raul pontello"
       project_name        = "deploy-aws-with-terraform"
-      lambda_source_file  = "./python/from_API_to_RDS.py"
+      python_file_name    = "from_API_to_RDS"
       create_custom_vpc   = false
-      rds_instance_engine = "mysql"
    }
    ```
 
@@ -70,7 +71,10 @@ All AWS resources are tagged using Terraform provider's default_tags property:
 
 - [Getting Started with AWS and Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started)
 
-For documentation on each resource implemented in this project, refer to the README file of each module.
+For documentation on each resource implemented in this project, refer to the README file of each module:
+   - [VPC](https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform/blob/main/modules/vpc/README.md)
+   - [RDS](https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform/blob/main/modules/rds/README.md)
+   - [GLUE](https://github.com/RaulPontello/deploy_aws_infrastructure_with_terraform/blob/main/modules/glue/README.md)
 
 ## Before You Start
 

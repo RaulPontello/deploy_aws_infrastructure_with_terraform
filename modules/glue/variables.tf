@@ -55,7 +55,6 @@ variable "rds_instance_secret_manager_arn" {
   type        = string
 }
 
-
 variable "glue_version" {
   description = "The version of glue to use, for example 1.0. Ray jobs should set this to 4.0 or greater."
   type        = string
@@ -65,7 +64,7 @@ variable "glue_version" {
 variable "number_of_workers" {
   description = "The number of workers of a defined workerType that are allocated when a job runs."
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "worker_type" {
