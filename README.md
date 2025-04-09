@@ -6,7 +6,7 @@ Hello folks, you have come to the right place if you want to learn Terrafom and 
 
 This repository is dedicated to deploying AWS resources using Terraform. This is an educational project, the solutions presented are not intended for production level. The goal of this repository is to teach how to use Terrafom with AWS resources.
 
-The mission of this repository is simple: Given a Public API, use AWS Glue to extract data from it and send the data to a database inside AWS RDS. We can create the RDS Instance using the Default VPC or using a Custom VPC where the RDS Instance will be place inside a Public Subnet.
+The mission of this repository is simple: Given a Public API, use AWS Glue to extract data from it and send the data to a database inside a MySQL AWS RDS. We can create the RDS Instance using the Default VPC or using a Custom VPC where the RDS Instance will be place inside a Public Subnet. For now, this solution only works with MySQL!!!
 
 With this repository, you will learn the following AWS resources using Terraform:
 - AWS VPC: https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
