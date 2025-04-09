@@ -1,10 +1,4 @@
-# Retrieve created secret
-
-# data "aws_secretsmanager_secret_version" "this" {
-#   secret_id = aws_secretsmanager_secret.this.id
-# }
-
-# Create my AWS RDS instance
+# Create AWS RDS instance
 
 resource "aws_db_instance" "this" {
   allocated_storage                   = var.allocated_storage

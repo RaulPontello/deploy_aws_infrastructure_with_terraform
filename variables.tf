@@ -1,7 +1,7 @@
-# Other variables
+# Generic variables
 
 variable "aws_region" {
-  description = "Region were tools will be created"
+  description = "Region were AWS resources will be created"
   type        = string
 }
 
@@ -26,12 +26,6 @@ variable "profile_name" {
 }
 
 variable "create_custom_vpc" {
-  description = "Whether to create a new VPC or use the default one."
-  type        = bool
-  default     = true
-}
-
-variable "use_public_subnet" {
   description = "Whether to create a new VPC or use the default one."
   type        = bool
   default     = true

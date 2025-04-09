@@ -1,4 +1,4 @@
-# Custom VPC creation (only created if create_custom_vpc is true)
+# Create Custom VPC
 
 resource "aws_vpc" "custom_vpc" {
   count                = var.create_custom_vpc ? 1 : 0
@@ -10,37 +10,28 @@ resource "aws_vpc" "custom_vpc" {
   }
 }
 
-# Create public and private subnets
+# Create public subnets
 
 resource "aws_subnet" "public_subnets" {
   count                   = var.create_custom_vpc ? length(var.availability_zones) : 0
   vpc_id                  = aws_vpc.custom_vpc[0].id
   cidr_block              = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, count.index)
   availability_zone       = var.availability_zones[count.index]
+  map_public_ip_on_launch = true
   tags = {
     Name = "${var.prefix}-custom-vpc-public-subnet-${count.index}"
   }
 }
 
-resource "aws_subnet" "private_subnets" {
-  count                   = var.create_custom_vpc ? length(var.availability_zones) : 0
-  vpc_id                  = aws_vpc.custom_vpc[0].id
-  cidr_block              = cidrsubnet(aws_vpc.custom_vpc[0].cidr_block, 4, count.index + 10)
-  availability_zone       = var.availability_zones[count.index]
-  tags = {
-    Name = "${var.prefix}-custom-vpc-private-subnet-${count.index}"
-  }
-}
-
-# DB Subnet Group (uses subnets created above)
+# Create DataBase Subnet Group
 
 resource "aws_db_subnet_group" "this" {
   count      = var.create_custom_vpc ? 1 : 0
   name       = "${var.prefix}-vpc-subnet-group"
-  subnet_ids = var.use_public_subnet ? aws_subnet.public_subnets[*].id : aws_subnet.private_subnets[*].id
+  subnet_ids = aws_subnet.public_subnets[*].id
 }
 
-# Internet Gateway
+# Create Internet Gateway
 
 resource "aws_internet_gateway" "this" {
   count  = var.create_custom_vpc ? 1 : 0
@@ -50,7 +41,7 @@ resource "aws_internet_gateway" "this" {
   }
 }
 
-# Route Table
+# Create Route Table
 
 resource "aws_route_table" "this" {
   count  = var.create_custom_vpc ? 1 : 0
@@ -64,6 +55,8 @@ resource "aws_route_table" "this" {
     Name = "${var.prefix}-custom-vpc-route-table"
   }
 }
+
+# Associate Route Table and Subnets
 
 resource "aws_route_table_association" "route_table_associations" {
   for_each = var.create_custom_vpc ? {

@@ -1,14 +1,9 @@
 variable "prefix" {
-  description = "Prefix used in all resources names"
+  description = "Prefix used in all AWS resources names"
   type        = string
 }
 
 variable "create_custom_vpc" {
-  description = "Whether to create a new VPC or use the default one."
-  type        = bool
-}
-
-variable "use_public_subnet" {
   description = "Whether to create a new VPC or use the default one."
   type        = bool
 }

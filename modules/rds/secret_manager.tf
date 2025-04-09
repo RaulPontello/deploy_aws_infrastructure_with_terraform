@@ -1,4 +1,4 @@
-# Create my AWS Secret
+# Create AWS Secret
 
 resource "random_password" "this" {
   length           = var.length

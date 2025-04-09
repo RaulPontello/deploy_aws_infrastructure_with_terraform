@@ -1,3 +1,5 @@
+# Create Glue Job
+
 resource "aws_glue_job" "this" {
   name     = "${var.prefix}-glue-job"
   role_arn = aws_iam_role.this.arn
@@ -7,9 +9,9 @@ resource "aws_glue_job" "this" {
     python_version  = "3"
   }
 
-  glue_version     = "3.0"
-  number_of_workers = 2
-  worker_type      = "G.1X"
+  glue_version      = var.glue_version
+  number_of_workers = var.number_of_workers
+  worker_type       = var.worker_type
 
   default_arguments = {
     "--continuous-log-logGroup"          = aws_cloudwatch_log_group.this.name
