@@ -15,6 +15,14 @@ variable "create_custom_vpc" {
   type        = bool
 }
 
+# AWS CloudWatch variables
+
+variable "retention_in_days" {
+  description = "Specifies the number of days you want to retain log events in the specified log group."
+  type        = string
+  default     = 1
+}
+
 # AWS Glue variables
 
 variable "secret_name" {
