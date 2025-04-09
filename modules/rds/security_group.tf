@@ -18,8 +18,8 @@ resource "aws_security_group" "this" {
   # Ingress for 0.0.0.0/0 (access from anywhere)
 
   ingress {
-    from_port   = var.rds_instance_engine == "mysql" ? 3306
-    to_port     = var.rds_instance_engine == "mysql" ? 3306
+    from_port   = 3306
+    to_port     = 3306
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
     description = "Allow inbound access from anywhere"
